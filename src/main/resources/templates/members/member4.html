@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Member 4 | Group Diary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/wimpy-style.css}"></head>
+<body class="desk-page member-page"><main class="member-wrap">
+<nav class="page-nav"><a th:href="@{/?open=true}">← Back to diary</a><span>STUDENT FILE #04 · TOP SECRET (NOT REALLY)</span><a th:href="@{/member/1}">Next file →</a></nav>
+<article class="member-paper" th:fragment="memberContent"><p class="scribble-label">CONFIDENTIAL-ish / DO NOT LOSE THIS PAGE</p>
+<!-- Replace the bracketed prompts with your real information. -->
+<h1>[MEMBER 4 NAME]</h1><p class="member-tagline">“[A funny one-line description of yourself.]”</p>
+<div class="profile-grid"><section><h2>About me</h2><p>[Introduce yourself: what you study, what you enjoy, and what you're curious about.]</p><p>[Add one more sentence about your personality, interests, or goals. Be yourself.]</p><div class="scribble-bubble" style="position:relative;display:inline-block;right:auto;top:auto;margin:3px 0 12px;transform:rotate(-3deg)">CURRENT STATUS:<br>[mostly functioning]</div></section>
+<aside class="sketch-card"><div class="doodle-person" aria-hidden="true"><span class="head"></span><span class="body"></span><span class="arm left"></span><span class="arm right"></span><span class="leg left"></span><span class="leg right"></span></div><p class="handwritten">[Draw yourself here]</p><p style="font-size:14px">artist's note: I tried.</p></aside></div>
+<section><h2>Skills & tools</h2><p>[List the things you can do and the tools or languages you know.]</p><ul class="scribble-list"><li>[Skill #1]</li><li>[Skill #2]</li><li>[Skill #3]</li><li>[Tool / language]</li></ul></section>
+<section><h2>Projects & achievements</h2><div class="project-grid"><div class="project-note"><h3>[Project title]</h3><p>[What you made, your role, and what you learned. Keep it short and clear.]</p></div><div class="project-note"><h3>[Another project]</h3><p>[Add another project, school activity, achievement, or something you're proud of.]</p></div></div></section>
+<section><h2>Evidence of a personality</h2><p>[A fun fact, personal motto, hobby, favorite subject, or future goal goes here.]</p><p class="handwritten" style="font-size:22px">THE REASON THE GROUP CHAT EXISTS</p></section>
+<p class="signature">End of file. Please return this page to the notebook.</p></article>
+<nav class="page-nav bottom-nav"><a th:href="@{/member/3}">← Previous file</a><a th:href="@{/?open=true}">Back to contents ↑</a><a th:href="@{/member/1}">Next file →</a></nav>
+<footer class="desk-footer"><span>THIS PAGE BELONGS TO THE GROUP DIARY</span><span>PLEASE DON'T EAT THE PAPER</span></footer></main></body></html>

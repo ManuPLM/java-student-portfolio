@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#173b63">
+<title>Group Diary — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/wimpy-style.css}"><script th:src="@{/js/book-flip.js}" defer></script>
+</head>
+<body class="desk-page home-page">
+<div class="desk-prop pencil" aria-hidden="true"></div><div class="desk-prop eraser" aria-hidden="true"></div><div class="paper-scrap" aria-hidden="true">DUE<br>YESTERDAY?</div>
+<main class="home-layout">
+<header class="top-note"><span class="tape-label">THE GROUP DIARY</span><p>Four students. One website. Absolutely no idea who volunteered to do the CSS.</p></header>
+<section class="book-scene" aria-label="Interactive group portfolio diary"><div class="book-shadow" aria-hidden="true"></div>
+<div class="book-shell" id="portfolioBook" th:classappend="${startOpen} ? ' is-open' : ''">
+<div class="page-spread" aria-live="polite">
+<div class="page-stack">
+<article class="page-leaf intro-leaf" data-page="0"><div class="paper-page intro-page"><div class="margin-hole hole-one"></div><div class="margin-hole hole-two"></div><div class="margin-hole hole-three"></div>
+<p class="scribble-label">IMPORTANT. PROBABLY.</p><h2>So, we made<br>a website.</h2><p class="hand-copy">It has our work, our skills, and evidence that we occasionally do productive things.</p>
+<div class="scribble-bubble bubble-left">did we<br>save it?</div><p class="hand-copy checklist-title">THINGS WE SHOULD DO:</p><ul class="checkbox-list"><li>Put our names here</li><li>Add projects</li><li>Act surprised it works</li></ul><p class="margin-joke">← very professional margin notes</p><span class="page-number">01</span></div><div class="leaf-back" aria-hidden="true"></div></article>
+<article class="page-leaf" data-page="1"><div class="paper-page contents-page"><div class="margin-hole hole-one"></div><div class="margin-hole hole-two"></div><div class="margin-hole hole-three"></div>
+<p class="scribble-label">THE INDEX (fancy word)</p><h1>Who's who?</h1><p class="hand-copy intro-copy">Pick a person. See what they've made. Please don't judge the doodles.</p>
+<nav class="member-list" aria-label="Student portfolios">
+<a href="#member-1" class="member-link" data-page-target="2"><span class="index-num">01</span><span class="member-link-text">[MEMBER ONE]<small>bio / skills / projects</small></span><span class="hand-arrow">↗</span></a>
+<a href="#member-2" class="member-link" data-page-target="3"><span class="index-num">02</span><span class="member-link-text">[MEMBER TWO]<small>bio / skills / projects</small></span><span class="hand-arrow">↗</span></a>
+<a href="#member-3" class="member-link" data-page-target="4"><span class="index-num">03</span><span class="member-link-text">[MEMBER THREE]<small>bio / skills / projects</small></span><span class="hand-arrow">↗</span></a>
+<a href="#member-4" class="member-link" data-page-target="5"><span class="index-num">04</span><span class="member-link-text">[MEMBER FOUR]<small>bio / skills / projects</small></span><span class="hand-arrow">↗</span></a></nav>
+<div class="contents-sticker">100%<br>REAL<br>STUDENTS</div><p class="bottom-scribble">Choose wisely. Or don't. We're not your parents.</p><span class="page-number">02</span></div><div class="leaf-back" aria-hidden="true"></div></article>
+<article class="page-leaf" data-page="2"><div class="paper-page portfolio-page" th:insert="~{members/member1 :: memberContent}"></div><div class="leaf-back" aria-hidden="true"></div></article>
+<article class="page-leaf" data-page="3"><div class="paper-page portfolio-page" th:insert="~{members/member2 :: memberContent}"></div><div class="leaf-back" aria-hidden="true"></div></article>
+<article class="page-leaf" data-page="4"><div class="paper-page portfolio-page" th:insert="~{members/member3 :: memberContent}"></div><div class="leaf-back" aria-hidden="true"></div></article>
+<article class="page-leaf" data-page="5"><div class="paper-page portfolio-page" th:insert="~{members/member4 :: memberContent}"></div><div class="leaf-back" aria-hidden="true"></div></article>
+</div>
+</div>
+<!-- Edit the title and subtitle placeholders whenever your group is ready. -->
+<button class="book-cover" id="bookCover" type="button" aria-label="Open the diary" aria-expanded="false">
+<span class="cover-paper-edge"></span><span class="cover-spine"></span><span class="cover-tape tape-one"></span><span class="cover-topline">A VERY IMPORTANT DOCUMENT</span>
+<span class="cover-title">[YOUR GROUP<br>TITLE GOES HERE]</span><span class="cover-scribble-line"></span><span class="cover-subtitle">[Your subtitle goes here — edit me!]</span>
+<span class="cover-comic"></span>
+<span class="cover-caption">FOUR CODERS. ZERO CHILL.</span><span class="cover-stamp">SCHOOL<br>PROJECT</span><span class="cover-bottom">PROPERTY OF: THE GROUP</span><span class="cover-doodle-star star-one">✳</span><span class="cover-doodle-star star-two">✦</span>
+</button></div></section>
+<div class="under-book-note"><span>✎</span> Tip: click the cover. It's not just decoration this time.</div>
+<footer class="desk-footer">Made with caffeine, panic, and a suspicious amount of CSS. <span>© THE GROUP, PROBABLY</span></footer>
+</main></body></html>
