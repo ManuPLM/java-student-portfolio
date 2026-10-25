@@ -3,7 +3,7 @@
 A Spring Boot + Thymeleaf school portfolio designed to feel like a chaotic, hand-drawn student diary: ruled notebook pages, a blue notebook cover, red margins, doodled stick figures, mock-confidential labels, scribbled captions, and a clickable 3D cover animation.
 
 ## Requirements
-- Java 21
+- Java 23
 - Maven 3.6+
 - Internet connection on first run if you want the Google Fonts to load (the site still works without them)
 
