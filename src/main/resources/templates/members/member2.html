@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Member 2 | Group Diary</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/wimpy-style.css}"></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/wimpy-style.css}"><link rel="stylesheet" th:href="@{/css/page-preview.css}"><script th:src="@{/js/book-flip.js}" defer></script></head>
 <body class="desk-page member-page"><main class="member-wrap">
 <nav class="page-nav"><a th:href="@{/?open=true}">← Back to diary</a><span>STUDENT FILE #02 · TOP SECRET (NOT REALLY)</span><a th:href="@{/member/3}">Next file →</a></nav>
 <article class="member-paper" th:fragment="memberContent"><p class="scribble-label">CONFIDENTIAL-ish / DO NOT LOSE THIS PAGE</p>
@@ -14,4 +14,4 @@
 <section><h2>Evidence of a personality</h2><p>[A fun fact, personal motto, hobby, favorite subject, or future goal goes here.]</p><p class="handwritten" style="font-size:22px">CERTIFIED WORK-IN-PROGRESS</p></section>
 <p class="signature">End of file. Please return this page to the notebook.</p></article>
 <nav class="page-nav bottom-nav"><a th:href="@{/member/1}">← Previous file</a><a th:href="@{/?open=true}">Back to contents ↑</a><a th:href="@{/member/3}">Next file →</a></nav>
-<footer class="desk-footer"><span>THIS PAGE BELONGS TO THE GROUP DIARY</span><span>PLEASE DON'T EAT THE PAPER</span></footer></main></body></html>
+</main></body></html>

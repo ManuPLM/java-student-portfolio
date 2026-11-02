@@ -26,12 +26,15 @@ The cover is intentionally a placeholder. The cover fills the book and opens to 
 ## Customize member pages
 Edit `src/main/resources/templates/members/member1.html` through `member4.html`. Replace the bracketed prompts with each student's real name, introduction, skills, projects, and fun facts. The four pages are separate so group members can edit their own content independently.
 
+Each notebook page and standalone member page gets an enlarged, zoomable preview automatically. For additional pages, keep the page content inside a `.paper-page` element (or use `.member-paper` for a standalone member page) and include `page-preview.css` and `book-flip.js` in the template head.
+
 ## Main files
 - `src/main/java/com/portfolio/PortfolioApplication.java` — app entry point
 - `src/main/java/com/portfolio/controller/PortfolioController.java` — routes `/`, `/member/1` … `/member/4`
 - `src/main/resources/templates/index.html` — cover and table of contents
 - `src/main/resources/templates/members/` — four member templates
 - `src/main/resources/static/css/wimpy-style.css` — visual design and responsive layout
+- `src/main/resources/static/css/page-preview.css` — page fitting and enlarged preview styles
 - `src/main/resources/static/js/book-flip.js` — cover animation, page turns, and keyboard behavior
 
 ## Notes
