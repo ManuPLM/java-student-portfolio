@@ -1,0 +1,229 @@
+2026.11.10 13:06:43 INFO  Started: Metals version 1.6.9 in folders 'C:\Users\Angel\Downloads\java-student-portfolio' for client Visual Studio Code 1.142.0.
+2026.11.10 13:06:43 INFO  Memory monitor started
+2026.11.10 13:06:45 WARN  Using H2 2.5.250 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.11.10 13:06:46 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 13:06:48 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 13:06:49 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 13:06:56 INFO  restarted 1 presentation compiler
+2026.11.10 14:52:25 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 14:52:25 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 14:52:33 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.10 14:52:33 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 14:52:34 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 14:57:12 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 14:57:12 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 10, 2026 2:57:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13
+2026.11.10 14:57:13 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.10 14:57:15 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.11 11:32:07 INFO  Shutting down server
+2026.11.11 11:32:07 INFO  Memory monitor stopped
+2026.11.11 11:32:07 INFO  shutting down Metals
+2026.11.11 11:32:07 INFO  Exiting server
+2026.11.11 11:32:08 ERROR Unexpected error initializing server: 
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequest failed with message: Canceled
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.11.17 17:25:38 INFO  Started: Metals version 1.6.9 in folders 'C:\Users\Angel\Downloads\java-student-portfolio' for client Visual Studio Code 1.146.0.
+2026.11.17 17:25:38 INFO  Memory monitor started
+2026.11.17 17:25:42 WARN  Using H2 2.5.250 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.11.17 17:25:43 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:26:12 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 5:26:28 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.11.17 17:27:54 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 5:29:38 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 17, 2026 5:29:39 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.11.17 17:30:23 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 5:30:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17
+2026.11.17 17:30:24 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:30:24 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:50:00 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:50:22 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:50:23 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 5:50:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30
+2026.11.17 17:50:22 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:50:23 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:50:25 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:14 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:14 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:14 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:14 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:15 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 5:55:17 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 43
+2026.11.17 17:55:17 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:17 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:17 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 5:55:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 47
+2026.11.17 17:55:17 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:36 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 17:55:36 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:04:07 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:04:35 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:04:35 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:04:35 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 6:04:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 61
+2026.11.17 18:04:35 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 6:10:30 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.11.17 18:18:38 INFO  running 'C:\Program Files\Java\jdk-23\bin\java.exe -Dfile.encoding=UTF-8 -Dmaven.multiModuleProjectDirectory=C:\Users\Angel\Downloads\java-student-portfolio -Dmaven.home=C:\Users\Angel\AppData\Local\Temp\metals12798024365163076804 -cp C:\Users\Angel\AppData\Local\Temp\metals12798024365163076804\maven-wrapper.jar org.apache.maven.wrapper.MavenWrapperMain generate-sources ch.epfl.scala:bloop-maven-plugin:2.0.5:bloopInstall -DdownloadSources=true'
+2026.11.17 18:18:51 INFO  [INFO] Scanning for projects...
+2026.11.17 18:18:53 INFO  Downloading from central: https://repo.maven.apache.org/maven2/ch/epfl/scala/bloop-maven-plugin/2.0.5/bloop-maven-plugin-2.0.5.pom
+2026.11.17 18:18:53 INFO  Progress (1): 1.1 kB
+2026.11.17 18:18:53 INFO  Progress (1): 1.2 kB
+2026.11.17 18:18:53 INFO  Progress (1): 3.2 kB
+2026.11.17 18:18:53 INFO  Progress (1): 6.5 kB
+2026.11.17 18:18:53 INFO  Progress (1): 8.0 kB
+2026.11.17 18:18:53 INFO                      
+2026.11.17 18:18:53 INFO  Downloaded from central: https://repo.maven.apache.org/maven2/ch/epfl/scala/bloop-maven-plugin/2.0.5/bloop-maven-plugin-2.0.5.pom (8.0 kB at 12 kB/s)
+2026.11.17 18:18:53 INFO  Downloading from central: https://repo.maven.apache.org/maven2/ch/epfl/scala/bloop-maven-plugin/2.0.5/bloop-maven-plugin-2.0.5.jar
+2026.11.17 18:18:53 INFO  Progress (1): 0.5/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 1.9/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 3.3/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 4.7/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 6.0/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 7.4/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 7.7/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 9.1/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 10/53 kB 
+2026.11.17 18:18:53 INFO  Progress (1): 12/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 13/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 15/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 16/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 17/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 19/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 20/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 21/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 23/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 24/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 26/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 27/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 28/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 30/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 31/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 32/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 34/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 35/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 36/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 38/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 39/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 41/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 42/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 43/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 45/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 46/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 47/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 49/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 50/53 kB
+2026.11.17 18:18:53 INFO  Progress (1): 53 kB   
+2026.11.17 18:18:53 INFO                     
+2026.11.17 18:18:53 INFO  Downloaded from central: https://repo.maven.apache.org/maven2/ch/epfl/scala/bloop-maven-plugin/2.0.5/bloop-maven-plugin-2.0.5.jar (53 kB at 283 kB/s)
+2026.11.17 18:18:53 INFO  [INFO] 
+2026.11.17 18:18:53 INFO  [INFO] -----------------< com.portfolio:wimpy-kid-portfolio >------------------
+2026.11.17 18:18:53 INFO  [INFO] Building wimpy-kid-portfolio 0.0.1-SNAPSHOT
+2026.11.17 18:18:53 INFO  [INFO]   from pom.xml
+2026.11.17 18:18:53 INFO  [INFO] --------------------------------[ jar ]---------------------------------
+2026.11.17 18:18:56 INFO  user cancelled mvn bloopInstall
+2026.11.17 18:18:56 INFO  time: ran 'mvn bloopInstall' in 17s
+2026.11.17 18:18:56 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.17 18:18:56 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.17 18:18:56 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.17 18:18:56 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.17 18:18:56 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.17 18:18:56 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:18:57 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:18:58 INFO  time: code lens generation in 2.02s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2s
+2026.11.17 18:18:58 INFO  time: code lens generation in 1.98s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2.01s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2.01s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2.01s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2s
+2026.11.17 18:18:58 INFO  time: code lens generation in 1.99s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2s
+2026.11.17 18:18:58 INFO  time: code lens generation in 1.98s
+2026.11.17 18:18:58 INFO  time: code lens generation in 1.99s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2s
+2026.11.17 18:18:58 INFO  time: code lens generation in 1.98s
+2026.11.17 18:18:58 INFO  time: code lens generation in 2.01s
+2026.11.17 18:18:58 INFO  time: code lens generation in 1.99s
+2026.11.17 18:19:13 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:19:13 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:19:31 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:19:38 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\controller\PortfolioController.java
+2026.11.17 18:19:38 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\controller\PortfolioController.java. Using fallback presentation compiler.
+2026.11.17 18:19:38 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\controller\PortfolioController.java. Using fallback presentation compiler.
+Nov 17, 2026 6:19:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 79
+2026.11.17 18:19:38 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\controller\PortfolioController.java. Using fallback presentation compiler.
+2026.11.17 18:19:40 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\controller\PortfolioController.java. Using fallback presentation compiler.
+2026.11.17 18:19:44 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\controller\PortfolioController.java. Using fallback presentation compiler.
+2026.11.17 18:20:26 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\controller\PortfolioController.java. Using fallback presentation compiler.
+Nov 17, 2026 6:20:30 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.11.17 18:20:39 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\controller\PortfolioController.java. Using fallback presentation compiler.
+2026.11.17 18:20:39 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.17 18:20:39 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:20:39 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:20:39 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:20:39 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:20:44 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 18:23:50 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 17, 2026 6:25:00 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 17, 2026 6:59:49 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.11.17 19:05:02 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 19:05:02 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+Nov 17, 2026 7:05:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 107
+2026.11.17 19:05:02 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 19:05:07 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 19:06:32 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 19:06:32 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 19:06:35 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.17 19:06:35 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:52:56 INFO  Started: Metals version 1.6.9 in folders 'C:\Users\Angel\Downloads\java-student-portfolio' for client Visual Studio Code 1.146.0.
+2026.11.18 07:52:56 INFO  Memory monitor started
+2026.11.18 07:53:04 WARN  Using H2 2.5.250 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.11.18 07:53:05 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:53:06 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:53:07 INFO  skipping build import with status 'Cancelled'
+2026.11.18 07:53:08 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.18 07:53:08 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:53:10 INFO  time: code lens generation in 3.03s
+2026.11.18 07:53:14 INFO  restarted 1 presentation compiler
+2026.11.18 07:53:22 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:53:24 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:53:38 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:53:38 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:56:50 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:56:51 WARN  no build target for: C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java
+2026.11.18 07:56:50 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:56:51 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 18, 2026 7:56:51 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 21
+2026.11.18 07:56:50 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:57:46 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 07:57:48 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+Nov 18, 2026 9:44:12 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.11.18 09:44:30 INFO  no build target found for C:\Users\Angel\Downloads\java-student-portfolio\src\main\java\com\portfolio\PortfolioApplication.java. Using fallback presentation compiler.
+2026.11.18 12:33:25 INFO  skipping build import with status 'Cancelled'
