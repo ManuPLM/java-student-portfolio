@@ -72,7 +72,7 @@
 }
 
 .page-leaf .member-paper {
-    transform: scale(var("--page-fit-scale", 1));
+    transform: scale(var(--page-fit-scale, 1));
     transform-origin: top left;
 }
 
