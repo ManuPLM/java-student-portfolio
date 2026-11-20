@@ -1,0 +1,29 @@
+.portrait-reveal{position:relative;width:min(280px,100%);margin:0 auto;font-family:var(--hand);font-size:13px}
+.portrait-stage{position:relative;width:100%;aspect-ratio:3/4;margin:2px auto 8px;overflow:hidden;border:2px solid #17202b;background:#fff7d8;box-shadow:2px 3px 0 rgba(0,0,0,.15)}
+.portrait-face,.portrait-cartoon{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;image-rendering:auto}
+.portrait-face{object-position:center}
+.portrait-cartoon{touch-action:none}
+.portrait-crayon{position:fixed;z-index:40;top:50%;right:max(8px,calc((100vw - min(880px,88vw))/4 - 26px));width:64px;height:22px;padding:0;border:1px solid #6f3022;border-radius:10px 5px 5px 10px;background:linear-gradient(to bottom,#ffbd72 0 15%,#ef5942 16% 82%,#b6312c 83%);box-shadow:2px 3px 3px rgba(0,0,0,.3);transform:rotate(42deg);cursor:grab;touch-action:none;user-select:none}
+.portrait-crayon:before{position:absolute;top:-1px;left:-11px;width:12px;height:22px;background:#d9aa67;clip-path:polygon(100% 0,100% 100%,0 50%);content:''}
+.portrait-crayon:after{position:absolute;top:4px;right:8px;height:12px;border-left:1px solid rgba(255,255,255,.55);content:''}
+.portrait-crayon:hover{filter:brightness(1.08)}
+.portrait-crayon:active,.portrait-crayon.is-dragging{z-index:6;cursor:grabbing}
+.portrait-crayon:focus-visible{outline:2px dashed #345c7a;outline-offset:3px}
+.portrait-fallback{position:absolute;inset:0;display:grid;place-content:center;margin:0!important;padding:12px;background:#fff7d8;text-align:center;font:14px/1.3 var(--hand)!important}
+.portrait-fallback[hidden]{display:none}
+.portrait-fallback code{font-size:12px;overflow-wrap:anywhere}
+.portrait-reveal.is-unavailable .portrait-face,.portrait-reveal.is-unavailable .portrait-cartoon,.portrait-reveal.is-unavailable .portrait-crayon{display:none}
+.member-page .member3-sketch-card{max-width:320px}
+.page-leaf .member3-profile-grid,.right-page .member3-profile-grid{grid-template-columns:1.1fr 1fr}
+.page-leaf .member3-sketch-card,.right-page .member3-sketch-card{max-width:none;padding:5px}
+.page-leaf .portrait-reveal,.right-page .portrait-reveal{width:min(180px,100%)}
+.member-page .member3-profile-grid h2{font-size:34px}
+.member-page .member3-profile-grid p{font-size:20px}
+.member-page .member3-profile-grid .scribble-bubble{font-size:20px}
+.member-page .member-paper h1{font-size:clamp(46px,6.5vw,74px)}
+.member-page .member-tagline{font-size:27px}
+.page-leaf .member3-profile-grid h2,.right-page .member3-profile-grid h2{font-size:26px}
+.page-leaf .member3-profile-grid p,.right-page .member3-profile-grid p{font-size:15px}
+.page-leaf .member3-profile-grid .scribble-bubble,.right-page .member3-profile-grid .scribble-bubble{font-size:17px}
+@media(max-width:850px){.portrait-crayon{top:8px;right:12px}}
+@media(prefers-reduced-motion:reduce){.portrait-crayon{transition:none}}

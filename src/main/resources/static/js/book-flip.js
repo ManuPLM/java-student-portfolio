@@ -39,6 +39,19 @@
   const openPreview = (page, trigger) => {
     const copy = page.cloneNode(true);
     copy.querySelectorAll('.page-zoom-trigger').forEach((button) => button.remove());
+    copy.querySelectorAll('.portrait-reveal').forEach((reveal) => {
+      const mainFace = reveal.querySelector('.portrait-face');
+      const previewCanvas = reveal.querySelector('.portrait-cartoon');
+      const previewSource = reveal.querySelector('.portrait-preview-source');
+      const stage = reveal.querySelector('.portrait-stage');
+      if (mainFace) mainFace.remove();
+      if (previewCanvas) previewCanvas.remove();
+      if (previewSource) {
+        previewSource.hidden = false;
+        previewSource.classList.add('portrait-preview-image');
+        stage?.replaceChildren(previewSource);
+      }
+    });
     copy.classList.add('page-preview-sheet');
     previewCanvas.replaceChildren(copy);
     previewZoom = 1;
@@ -184,12 +197,23 @@
     );
     leaves.forEach((leaf) => {
       const page = Number(leaf.dataset.page);
+      const isTurned = leaf.classList.contains('is-turned');
+      const front = leaf.querySelector(':scope > .paper-page');
+      const back = leaf.querySelector(':scope > .leaf-back');
+
       const zIndex = page < currentPage
         ? page + 2
         : page === currentPage
           ? leaves.length + 20
           : leaves.length + 10 - page;
       leaf.style.setProperty('z-index', String(zIndex), 'important');
+      leaf.style.pointerEvents = isTurned ? 'none' : 'auto';
+      if (front) {
+        front.style.visibility = isTurned ? 'hidden' : 'visible';
+      }
+      if (back) {
+        back.style.visibility = isTurned ? 'visible' : 'hidden';
+      }
     });
   };
 
