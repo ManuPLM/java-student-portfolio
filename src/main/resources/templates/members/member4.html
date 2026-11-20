@@ -25,6 +25,7 @@
 .m4 .m4-profile-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:22px;align-items:start}
 .m4 .m4-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
 .m4 .m4-facts div{padding:7px 10px;background:rgba(255,255,255,.55);border-bottom:2px solid var(--m4-gold)}
+.m4 .m4-facts .m4-goals{grid-column:1/-1}
 .m4 .m4-facts dt{font:700 13px var(--scribble);color:var(--m4-plum);letter-spacing:.7px}
 .m4 .m4-facts dd{margin:2px 0 0}
 .m4 .m4-doodle{min-height:188px;border:2px solid var(--m4-ink);background:rgba(255,255,255,.5);padding:12px;text-align:center;transform:rotate(1.5deg);box-shadow:3px 4px 0 rgba(64,51,77,.15)}
@@ -56,6 +57,10 @@
 .m4 .m4-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 15px}
 .m4 .m4-links p{margin:3px 0}
 .m4 .signature{color:var(--m4-plum)}
+/* BOOK VIEW: Keep text readable and let the page viewport scroll instead of clipping content. */
+.page-leaf .member-paper.m4{width:100%!important;height:auto!important;min-height:100%;overflow:visible!important;transform:none!important}
+/* BOOK PAPER: Extend the ruling and red margin line over the full scrollable Member 4 sheet. */
+.page-leaf .page-line-surface.portfolio-page>.member-paper.m4{background-color:var(--paper)!important;background-image:linear-gradient(to right,transparent 0 21px,rgba(220,93,93,.72) 21px 23px,transparent 23px),repeating-linear-gradient(to bottom,transparent 0 27px,var(--line) 27px 28px)!important;background-repeat:no-repeat,repeat!important}
 /* MOBILE: Tune these breakpoints if you change the layouts above. */
 @media(max-width:700px){
   .m4 .m4-profile-grid,.m4 .m4-skill-groups,.m4 .m4-project-grid{grid-template-columns:1fr}
@@ -81,7 +86,7 @@
       <div><dt>COURSE</dt><dd>[Program / year level]</dd></div>
       <div><dt>SCHOOL</dt><dd>[School name]</dd></div>
       <div><dt>FOCUS</dt><dd>[Topics you are exploring]</dd></div>
-      <div><dt>RIGHT NOW</dt><dd>[What you are learning or working on]</dd></div>
+      <div class="m4-goals"><dt>RIGHT NOW</dt><dd>[What you are learning or working on]</dd></div>
     </dl>
     <p class="m4-note">Margin note: [A small detail you want people to remember.]</p>
   </section>
