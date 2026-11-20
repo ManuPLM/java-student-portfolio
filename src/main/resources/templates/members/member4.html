@@ -57,6 +57,13 @@
 .m4 .m4-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 15px}
 .m4 .m4-links p{margin:3px 0}
 .m4 .signature{color:var(--m4-plum)}
+.m4 .m4-foxy-card{display:inline-flex;max-width:100%;margin:12px 0;padding:8px 12px;border:2px solid var(--m4-ink);background:#fff7dd;color:var(--m4-ink);box-shadow:3px 4px 0 rgba(64,51,77,.18);font:700 17px var(--scribble);text-align:center;transform:rotate(-1deg);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+.m4 .m4-foxy-card:hover,.m4 .m4-foxy-card:focus-visible{transform:translateY(-2px) rotate(0);box-shadow:5px 7px 0 rgba(64,51,77,.25)}
+.m4 .m4-foxy-card:focus-visible{outline:3px dashed var(--m4-plum);outline-offset:3px}
+.m4-foxy-overlay{box-sizing:border-box;position:fixed;z-index:2147483647;inset:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:#fff;display:grid;place-items:center;overflow:hidden;cursor:pointer}
+.m4-foxy-overlay::backdrop{background:rgba(0,0,0,.94)}
+.m4-foxy-overlay video{display:block;width:auto;height:auto;max-width:96vw;max-height:96vh;max-height:96dvh;object-fit:contain;object-position:center;background:transparent}
+.m4-foxy-error{max-width:32em;padding:24px;color:#fff;text-align:center;font:700 clamp(20px,4vw,36px)/1.3 var(--scribble)}
 /* BOOK VIEW: Keep text readable and let the page viewport scroll instead of clipping content. */
 .page-leaf .member-paper.m4{width:100%!important;height:auto!important;min-height:100%;overflow:visible!important;transform:none!important}
 /* BOOK PAPER: Extend the ruling and red margin line over the full scrollable Member 4 sheet. */
@@ -70,6 +77,89 @@
   .m4 .m4-facts,.m4 .m4-interest-grid,.m4 .m4-links{grid-template-columns:1fr}
 }
 </style>
+<script>
+(() => {
+  if (window.__m4FoxyEggReady) return;
+  window.__m4FoxyEggReady = true;
+  let dialog = null;
+  let trigger = null;
+
+  const closeDialog = () => {
+    if (!dialog) return;
+    const activeDialog = dialog;
+    dialog = null;
+    const video = activeDialog.querySelector('video');
+    if (video) {
+      video.pause();
+      if (video.readyState > 0) video.currentTime = 0;
+      video.removeAttribute('src');
+      video.load();
+    }
+    if (activeDialog.open) activeDialog.close();
+    activeDialog.remove();
+    if (trigger?.isConnected) trigger.focus();
+    trigger = null;
+  };
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !dialog) return;
+    event.preventDefault();
+    event.stopPropagation();
+    closeDialog();
+  }, true);
+
+  document.addEventListener('click', (event) => {
+    const card = event.target instanceof Element
+      ? event.target.closest('.m4-foxy-card')
+      : null;
+    if (!card) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    if (dialog) return;
+
+    trigger = card;
+    const activeDialog = document.createElement('dialog');
+    dialog = activeDialog;
+    activeDialog.className = 'm4-foxy-overlay';
+    activeDialog.setAttribute('aria-label', "Foxy's jumpscare");
+    activeDialog.setAttribute('aria-modal', 'true');
+    activeDialog.addEventListener('click', (overlayEvent) => {
+      overlayEvent.preventDefault();
+      overlayEvent.stopPropagation();
+      closeDialog();
+    });
+    activeDialog.addEventListener('cancel', (cancelEvent) => {
+      cancelEvent.preventDefault();
+      closeDialog();
+    });
+
+    const video = document.createElement('video');
+    video.setAttribute('aria-label', "Foxy's jumpscare video");
+    video.setAttribute('playsinline', '');
+    video.preload = 'auto';
+    video.addEventListener('ended', closeDialog, { once: true });
+    const showPlaybackError = () => {
+      if (!activeDialog.isConnected || activeDialog.querySelector('.m4-foxy-error')) return;
+      const error = document.createElement('p');
+      error.className = 'm4-foxy-error';
+      error.setAttribute('role', 'alert');
+      error.textContent = 'The jumpscare video could not be played. Check src/main/resources/static/videos/foxy-jumpscare.webm.';
+      activeDialog.append(error);
+    };
+    video.addEventListener('error', showPlaybackError, { once: true });
+
+    activeDialog.append(video);
+    document.body.append(activeDialog);
+    activeDialog.showModal();
+    video.src = card.dataset.jumpscareVideo;
+    const playback = video.play();
+    if (playback) {
+      playback.catch(showPlaybackError);
+    }
+  }, true);
+})();
+</script>
 <!-- BOOKMARK: Replace the ribbon symbol or fill color if you want a different decoration. -->
 <div class="bookmark" aria-hidden="true"><svg viewBox="0 0 60 150"><path d="M0 0h60v150l-30-20L0 150z" fill="#76518f"/><text x="30" y="70" text-anchor="middle" font-size="32" fill="#fffef6">✦</text></svg></div>
 <!-- INTRODUCTION: Replace the name, tagline, and short introduction with your own details. -->
@@ -149,6 +239,8 @@
   <div class="m4-interest"><h3>Small facts</h3><p>[A favorite, a collection, a habit, or a fact about you.]</p></div>
   <div class="m4-interest"><h3>Looking ahead</h3><p>[A goal, place, skill, or experience you hope to explore.]</p></div>
 </section>
+<!-- FOXY EASTER EGG: This button is intentionally styled as a scrapbook note. -->
+<button class="m4-foxy-card" type="button" aria-label="Play Foxy's jumpscare video" aria-haspopup="dialog" th:attr="data-jumpscare-video=@{/videos/foxy-jumpscare.webm}">Do NOT click this, LOL!</button>
 <!-- SCRAPBOOK SPACE: Add a personal photo, sticker, or note; this is intentionally left open. -->
 <div class="m4-open-space">[Optional: add a personal photo, sticker, or note here]</div>
 <section>
