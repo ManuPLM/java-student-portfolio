@@ -196,7 +196,7 @@
         ? page + 2
         : page === currentPage
           ? leaves.length + 20
-          : currentPage - page;
+          : leaves.length + 10 - page;
       leaf.style.setProperty('z-index', String(zIndex), 'important');
     });
   };
