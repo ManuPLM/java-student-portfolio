@@ -40,10 +40,12 @@
     const copy = page.cloneNode(true);
     copy.querySelectorAll('.page-zoom-trigger').forEach((button) => button.remove());
     copy.classList.add('page-preview-sheet');
+    copy.__previewSourcePage = page;
     previewCanvas.replaceChildren(copy);
     previewZoom = 1;
     previewTrigger = trigger;
     previewDialog.showModal();
+    window.initializeM4MusicPlayers?.(copy);
     window.requestAnimationFrame(updatePreviewZoom);
     previewViewport.scrollTop = 0;
     previewViewport.scrollLeft = 0;
@@ -128,6 +130,12 @@
     }
   });
   previewDialog.addEventListener('close', () => {
+    const originalPage = previewTrigger?.closest('.paper-page') ||
+      previewTrigger?.closest('.member-paper');
+    const previewPage = previewCanvas.firstElementChild;
+    if (originalPage && previewPage) {
+      window.syncM4MusicPreview?.(previewPage, originalPage);
+    }
     previewCanvas.replaceChildren();
     previewCanvas.style.width = '';
     previewCanvas.style.height = '';
@@ -227,6 +235,23 @@
   };
   selectBookPage = flipTo;
 
+  document.querySelectorAll('.tab-rail [data-go]').forEach((tab) => {
+    tab.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetPage = Number(tab.dataset.go);
+      if (!Number.isInteger(targetPage) || targetPage < 0 || targetPage >= leaves.length) {
+        console.error(`Invalid bookmark target page: ${tab.dataset.go}`);
+        return;
+      }
+      if (!book.classList.contains('is-open')) {
+        book.classList.add('is-open');
+        cover.setAttribute('aria-expanded', 'true');
+        cover.setAttribute('aria-label', 'Close the diary cover');
+        updateStack();
+      }
+      flipTo(targetPage);
+    });
+  });
 
   cover.addEventListener('click', () => {
     const open = !book.classList.contains('is-open');
