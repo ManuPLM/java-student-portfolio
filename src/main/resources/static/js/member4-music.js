@@ -168,7 +168,6 @@
     const startButton = root.querySelector('[data-music-start]');
     const panel = root.querySelector('[data-music-panel]');
     const frame = root.querySelector('[data-music-frame]');
-    const content = root.querySelector('[data-music-content]');
     const collapseButton = root.querySelector('[data-music-collapse]');
     const title = root.querySelector('[data-music-title]');
     const artist = root.querySelector('[data-music-artist]');
@@ -177,13 +176,13 @@
     const randomizeButton = root.querySelector('[data-music-random]');
     const openLink = root.querySelector('[data-music-open]');
 
-    if (!startButton || !panel || !frame || !content || !collapseButton || !title || !artist || !status ||
+    if (!startButton || !panel || !frame || !collapseButton || !title || !artist || !status ||
       !playButton || !randomizeButton || !openLink) return;
 
     initializedRoots.add(root);
     const index = playerIndex++;
-    content.id = `m4-music-content-${index}`;
-    collapseButton.setAttribute('aria-controls', content.id);
+    panel.id = `m4-music-panel-${index}`;
+    collapseButton.setAttribute('aria-controls', panel.id);
     const initialTrack = root.dataset.currentVideoId
       ? {
           videoId: root.dataset.currentVideoId,
@@ -211,15 +210,17 @@
     let loadingTracks = false;
     let playlistWarning = '';
     let cueInitialTrack = Boolean(initialTrack);
+    let hasRandomizedTrack = Boolean(initialTrack);
+    collapseButton.disabled = !hasRandomizedTrack;
+    collapseButton.setAttribute('aria-expanded', String(hasRandomizedTrack));
+    collapseButton.setAttribute('aria-label', `${hasRandomizedTrack ? 'Minimize' : 'Maximize'} On repeat card`);
+    collapseButton.textContent = hasRandomizedTrack ? '−' : '+';
 
     collapseButton.addEventListener('click', () => {
-      const expanded = collapseButton.getAttribute('aria-expanded') === 'true';
-      content.hidden = expanded;
-      collapseButton.setAttribute('aria-expanded', String(!expanded));
-      collapseButton.setAttribute('aria-label', `${expanded ? 'Expand' : 'Minimize'} On repeat card`);
-      collapseButton.textContent = expanded ? '+' : '−';
+      if (!hasRandomizedTrack) return;
+      resetToDefault();
       const previewPage = root.closest('.page-preview-sheet');
-      if (expanded && previewPage?.__previewSourcePage) {
+      if (previewPage?.__previewSourcePage) {
         window.syncM4MusicPreview?.(previewPage, previewPage.__previewSourcePage);
       }
     });
@@ -228,6 +229,40 @@
       status.textContent = playlistWarning ? `${playlistWarning} ${message}` : message;
       status.classList.toggle('is-error', isError);
       status.setAttribute('role', isError ? 'alert' : 'status');
+    };
+
+    const resetToDefault = () => {
+      if (player && playerReady && currentTrack) {
+        try {
+          player.stopVideo();
+        } catch (error) {
+          console.error('Could not stop the current YouTube song.', error);
+          setStatus(`Could not stop the current song: ${formatError(error)}`, true);
+        }
+      }
+
+      currentTrack = null;
+      hasRandomizedTrack = false;
+      playerState = -1;
+      loadedVideoId = null;
+      cueInitialTrack = false;
+      delete root.dataset.currentVideoId;
+      delete root.dataset.currentTitle;
+      delete root.dataset.currentArtist;
+      delete root.dataset.currentPlaylistId;
+      title.textContent = 'Waiting for a song';
+      artist.textContent = '';
+      artist.hidden = true;
+      openLink.hidden = true;
+      playButton.disabled = true;
+      randomizeButton.disabled = true;
+      panel.hidden = true;
+      startButton.hidden = false;
+      collapseButton.disabled = true;
+      collapseButton.setAttribute('aria-expanded', 'false');
+      collapseButton.setAttribute('aria-label', 'Maximize On repeat card');
+      collapseButton.textContent = '+';
+      setStatus('Loading playlist tracks…');
     };
 
     const updatePlayButton = () => {
@@ -240,6 +275,13 @@
 
     const showTrack = (track) => {
       currentTrack = track;
+      hasRandomizedTrack = true;
+      startButton.hidden = true;
+      panel.hidden = false;
+      collapseButton.disabled = false;
+      collapseButton.setAttribute('aria-expanded', 'true');
+      collapseButton.setAttribute('aria-label', 'Minimize On repeat card');
+      collapseButton.textContent = '−';
       root.dataset.currentVideoId = track.videoId;
       root.dataset.currentTitle = track.title;
       root.dataset.currentArtist = track.artist;
@@ -282,7 +324,8 @@
     };
 
     const handlePlayerError = (event) => {
-      if (currentTrack) failedVideoIds.add(currentTrack.videoId);
+      if (!currentTrack) return;
+      failedVideoIds.add(currentTrack.videoId);
       loadedVideoId = null;
       const nextTrack = chooseRandomTrack();
       if (!nextTrack) {
@@ -373,6 +416,10 @@
     };
 
     musicPlayerControllers.set(root, async (track) => {
+      if (!track) {
+        resetToDefault();
+        return;
+      }
       startButton.hidden = true;
       panel.hidden = false;
       if (currentTrack?.videoId === track.videoId && loadedVideoId === track.videoId) return;
@@ -475,10 +522,14 @@
     const originalRoot = originalPage?.matches?.('[data-m4-music]')
       ? originalPage
       : originalPage?.querySelector?.('[data-m4-music]');
-    if (!previewRoot || !originalRoot || !previewRoot.dataset.currentVideoId) return;
+    if (!previewRoot || !originalRoot) return;
 
     const syncTrack = musicPlayerControllers.get(originalRoot);
     if (!syncTrack) return;
+    if (!previewRoot.dataset.currentVideoId) {
+      syncTrack(null);
+      return;
+    }
     syncTrack({
       videoId: previewRoot.dataset.currentVideoId,
       title: previewRoot.dataset.currentTitle || 'Current song',

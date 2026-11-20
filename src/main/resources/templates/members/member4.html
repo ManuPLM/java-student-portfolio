@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Member 4 | Group Diary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
-<link rel="stylesheet" th:href="@{/css/wimpy-style.css}"><link rel="stylesheet" th:href="@{/css/page-preview.css}"><link rel="stylesheet" th:href="@{/css/wimpy-theme.css}">
+<link rel="stylesheet" th:href="@{/css/wimpy-style.css}"><link rel="stylesheet" th:href="@{/css/page-preview.css(v=2)}"><link rel="stylesheet" th:href="@{/css/wimpy-theme.css}">
 <script th:src="@{/js/book-flip.js(v=2)}" defer></script><script th:src="@{/js/wimpy-fx.js}" defer></script>
 </head>
 <body class="desk-page member-page">
@@ -25,7 +25,7 @@
 .m4 .m4-profile-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:22px;align-items:start}
 .m4 .m4-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
 .m4 .m4-facts div{padding:7px 10px;background:rgba(255,255,255,.55);border-bottom:2px solid var(--m4-gold)}
-.m4 .m4-facts .m4-goals{grid-column:1/-1}
+.m4 .m4-facts .m4-goals{grid-column:auto}
 .m4 .m4-facts dt{font:700 13px var(--scribble);color:var(--m4-plum);letter-spacing:.7px}
 .m4 .m4-facts dd{margin:2px 0 0}
 .m4 .m4-doodle{min-height:188px;border:2px solid var(--m4-ink);background:rgba(255,255,255,.5);padding:12px;text-align:center;transform:rotate(1.5deg);box-shadow:3px 4px 0 rgba(64,51,77,.15)}
@@ -73,6 +73,7 @@
 .m4 .m4-music-collapse{flex:none;padding:2px 9px;border:1px solid var(--m4-ink);border-radius:6px;background:#fff7dd;color:var(--m4-ink);font:700 18px var(--scribble);cursor:pointer}
 .m4 .m4-music-collapse:hover,.m4 .m4-music-collapse:focus-visible{background:#f5e8bb}
 .m4 .m4-music-collapse:focus-visible{outline:3px dashed var(--m4-plum);outline-offset:3px}
+.m4 .m4-music-collapse:disabled{opacity:.55;cursor:not-allowed}
 .m4 .m4-music-content[hidden]{display:none}
 .m4 .m4-music-start,.m4 .m4-music-controls button,.m4 .m4-music-controls a{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:7px 12px;border:1.5px solid var(--m4-ink);border-radius:8px;background:#fff7dd;color:var(--m4-ink);font:700 16px var(--scribble);text-decoration:none;cursor:pointer}
 .m4 .m4-music-start:hover,.m4 .m4-music-controls button:hover,.m4 .m4-music-controls a:hover{background:#f5e8bb}
@@ -122,11 +123,405 @@
 .page-leaf .page-line-surface.portfolio-page>.member-paper.m4{background-color:var(--paper)!important;background-image:linear-gradient(to right,transparent 0 21px,rgba(220,93,93,.72) 21px 23px,transparent 23px),repeating-linear-gradient(to bottom,transparent 0 27px,var(--line) 27px 28px)!important;background-repeat:no-repeat,repeat!important}
 /* MOBILE: Tune these breakpoints if you change the layouts above. */
 @media(max-width:700px){
-  .m4 .m4-profile-grid,.m4 .m4-skill-groups,.m4 .m4-project-grid{grid-template-columns:1fr}
+  .m4 .m4-profile-grid,.m4 .m4-project-grid{grid-template-columns:1fr}
+  .m4 .m4-skill-groups{grid-template-columns:1fr 1fr}
   .m4 .m4-doodle{max-width:260px;margin:0 auto}
 }
 @media(max-width:480px){
   .m4 .m4-facts,.m4 .m4-interest-grid,.m4 .m4-links{grid-template-columns:1fr}
+}
+/* MEMBER 4 REDESIGN: Clean, balanced layouts for the profile, project, and interests sheets. */
+.member-wrap{max-width:1060px}
+.page-leaf .member-paper.m4{
+  --m4-ink:#3e3448;
+  --m4-plum:#735087;
+  --m4-gold:#d9b958;
+  background-image:
+    linear-gradient(to right, transparent 0 64px, rgba(220,93,93,.55) 64px 66px, transparent 66px),
+    repeating-linear-gradient(to bottom, transparent 0 31px, var(--line) 31px 32px)!important;
+  background-repeat:no-repeat,repeat!important;
+  padding:46px 54px 38px 92px!important;
+}
+.member-paper.m4 h1{font-size:clamp(46px,5.3vw,66px);letter-spacing:-1.5px;line-height:.92}
+.m4 .m4-kicker{display:inline-block;margin:0 0 12px;padding:6px 10px 5px;border:1px solid rgba(115,80,135,.35);border-radius:999px;background:rgba(255,255,255,.62);font:700 12px var(--hand);letter-spacing:1.8px}
+.m4 .member-tagline{font-size:24px;margin:2px 0 24px;color:#66556f}
+.m4 .m4-profile-grid{grid-template-columns:minmax(0,1.45fr) minmax(220px,.55fr);gap:28px}
+.m4 .m4-profile-grid section{min-width:0}
+.m4 .m4-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0 4px}
+.m4 .m4-facts div{min-height:82px;padding:12px 12px 10px;border:1px solid rgba(64,51,77,.18);border-bottom:3px solid var(--m4-gold);border-radius:8px;background:rgba(255,255,255,.78);box-shadow:2px 3px 0 rgba(64,51,77,.08)}
+.m4 .m4-facts .m4-goals{min-height:70px}
+.m4 .m4-facts dt{font:700 12px var(--hand);letter-spacing:1.2px}
+.m4 .m4-facts dd{font-size:17px;line-height:1.25}
+.m4 .m4-doodle{min-height:230px;border:0;border-radius:10px;background:#f1e8f4;transform:rotate(1deg);box-shadow:6px 7px 0 rgba(64,51,77,.12);overflow:hidden}
+.m4 .m4-doodle img{height:178px;margin-bottom:4px;filter:drop-shadow(3px 4px 0 rgba(64,51,77,.12))}
+.m4 .m4-doodle .handwritten{display:block;padding:7px 8px 0;border-top:1px dashed rgba(64,51,77,.35);font-size:12px}
+.m4 .m4-section-title{align-items:center;margin-top:20px;padding-bottom:5px;border-bottom:1px dashed rgba(64,51,77,.28)}
+.m4 .m4-section-title h2{margin:0;text-decoration:none}
+.m4 .m4-skill-groups{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.m4 .m4-skill-group{min-height:118px;border-radius:8px;border:1px solid rgba(64,51,77,.22);background:rgba(255,255,255,.74);transform:none;box-shadow:3px 4px 0 rgba(64,51,77,.07)}
+.m4 .m4-skill-group:nth-child(even){transform:rotate(.4deg);background:#f3edf6}
+.m4 .m4-skill-group:nth-child(2){grid-column:1/-1;grid-row:2;width:min(100%,360px);justify-self:center;min-height:0}
+.m4 .m4-skill-group:nth-child(3){grid-column:2;grid-row:1}
+.m4 .m4-skill-group h3,.m4 .m4-skill-group .m4-skill-group-title{font-size:19px}
+.m4 .m4-skill-group .scribble-list{gap:5px}
+.m4 .m4-skill-group .scribble-list li{font-size:14px;padding:3px 8px;border-radius:999px}
+.m4 .signature{text-align:left;margin:18px 0 0;font-size:20px}
+.m4 .m4-project-grid{gap:18px;margin-top:16px}
+.m4 .m4-project{position:relative;display:flex;flex-direction:column;padding:12px;border:1px solid rgba(64,51,77,.22);border-radius:10px;background:rgba(255,255,255,.82);transform:none;box-shadow:5px 6px 0 rgba(64,51,77,.08)}
+.m4 .m4-project:nth-child(even){transform:rotate(.5deg)}
+.m4 .m4-project-art--image{height:190px;min-height:190px;border:1px solid rgba(64,51,77,.18);border-radius:7px;background:#f7f4eb}
+.m4 .m4-project-art--image img{width:100%;height:190px;max-height:none;object-fit:contain}
+.m4 .m4-project h3{margin:8px 0 4px;font-size:28px}
+.m4 .m4-project p{font-size:16px}
+.m4 .m4-project-label{display:inline-block;margin-right:4px}
+.m4 .m4-interest-grid{grid-template-columns:.78fr 1.22fr;grid-auto-rows:min-content;gap:14px;align-items:start}
+.m4 .m4-interest{border:1px solid rgba(64,51,77,.16);border-left-width:5px;border-radius:8px;background:rgba(255,255,255,.72);transform:none}
+.m4 .m4-interest{align-self:start}
+.m4 .m4-interest:nth-child(even){transform:rotate(.35deg)}
+.m4 .m4-fun-interest{grid-column:1;grid-row:1}
+.m4 .m4-music-interest{grid-column:2;grid-row:1/span 3}
+.m4 .m4-did-you-interest{grid-column:1;grid-row:2}
+.m4 .m4-looking-interest{grid-column:1;grid-row:3}
+.m4 .m4-interest h3,.m4 .m4-interest .m4-image-trigger-title{font-size:22px}
+.m4 .m4-music-frame{max-width:520px}
+.m4 .m4-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
+.m4 .m4-links p{margin:0;padding:8px 10px;border:1px dashed rgba(64,51,77,.22);border-radius:6px;background:rgba(255,255,255,.58)}
+.m4 .m4-links a{color:var(--m4-plum);font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}
+.m4 .m4-open-space{margin:12px 0 16px}
+.m4 .m4-foxy-card{margin:10px 0 2px}
+@media(max-width:700px){
+  .page-leaf .member-paper.m4{background-image:linear-gradient(to right,transparent 0 42px,rgba(220,93,93,.55) 42px 44px,transparent 44px),repeating-linear-gradient(to bottom,transparent 0 31px,var(--line) 31px 32px)!important;padding:34px 18px 30px 54px!important}
+  .member-paper.m4 h1{font-size:42px}
+  .m4 .m4-profile-grid,.m4 .m4-skill-groups,.m4 .m4-project-grid{grid-template-columns:1fr}
+  .m4 .m4-facts{grid-template-columns:1fr 1fr}
+  .m4 .m4-doodle{max-width:none}
+  .m4 .m4-project-art--image,.m4 .m4-project-art--image img{height:210px}
+  .m4 .m4-interest-grid{grid-template-columns:1fr 1fr}
+  .m4 .m4-links{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .page-leaf .member-paper.m4{padding:30px 14px 26px 44px!important}
+  .member-paper.m4 h1{font-size:36px}
+  .m4 .m4-facts{grid-template-columns:1fr}
+  .m4 .m4-facts .m4-goals{grid-column:auto}
+  .m4 .m4-project-art--image,.m4 .m4-project-art--image img{height:170px}
+}
+
+/* DIARY LEAF: Optimize for the real 360-430px notebook page, not the fullscreen route. */
+.page-leaf .member-paper.m4{
+  padding:28px 18px 24px 52px!important;
+  overflow-x:hidden!important;
+  font-size:15px;
+}
+.page-leaf .member-paper.m4 h1{font-size:38px!important;line-height:.86;letter-spacing:-.8px;margin-bottom:9px}
+.page-leaf .member-paper.m4 h2{font-size:23px!important;margin:12px 0 6px}
+.page-leaf .member-paper.m4 h3{font-size:20px!important}
+.page-leaf .member-paper.m4 p{line-height:1.32}
+.page-leaf .member-paper.m4 .m4-kicker{max-width:100%;margin:0 0 8px;padding:4px 7px;font-size:9px;letter-spacing:1.1px}
+.page-leaf .member-paper.m4 .member-tagline{font-size:17px!important;margin:0 0 14px}
+.page-leaf .member-paper.m4 .m4-profile-grid{grid-template-columns:minmax(0,1fr) 104px;gap:9px}
+.page-leaf .member-paper.m4 .m4-profile-grid section p{font-size:14px;margin:5px 0}
+.page-leaf .member-paper.m4 .m4-facts{grid-template-columns:1fr 1fr;gap:5px;margin:8px 0 2px}
+.page-leaf .member-paper.m4 .m4-facts div{min-height:48px;padding:6px 7px;border-bottom-width:2px;box-shadow:1px 2px 0 rgba(64,51,77,.06)}
+.page-leaf .member-paper.m4 .m4-facts dt{font-size:9px;line-height:1.1;letter-spacing:.7px}
+.page-leaf .member-paper.m4 .m4-facts dd{font-size:12px;line-height:1.18;margin-top:2px}
+.page-leaf .member-paper.m4 .m4-facts .m4-goals{grid-column:auto;min-height:52px}
+.page-leaf .member-paper.m4 .m4-doodle{min-height:142px;max-width:none;width:104px;height:142px;padding:5px;transform:rotate(.7deg)}
+.page-leaf .member-paper.m4 .m4-doodle img{height:102px;margin:0 auto 3px}
+.page-leaf .member-paper.m4 .m4-doodle .handwritten{padding:3px 2px 0;font-size:11px;line-height:1.05}
+.page-leaf .member-paper.m4 .m4-section-title{margin-top:12px;gap:5px}
+.page-leaf .member-paper.m4 .m4-section-title small{font-size:10px}
+.page-leaf .member-paper.m4 .m4-skill-groups{grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}
+.page-leaf .member-paper.m4 .m4-skill-group{min-height:82px;padding:6px 7px;box-shadow:2px 2px 0 rgba(64,51,77,.06)}
+.page-leaf .member-paper.m4 .m4-skill-group:nth-child(2){grid-column:1/-1;min-height:54px}
+.page-leaf .member-paper.m4 .m4-skill-group h3,
+.page-leaf .member-paper.m4 .m4-skill-group .m4-skill-group-title{font-size:15px!important}
+.page-leaf .member-paper.m4 .m4-skill-group .scribble-list{gap:3px;margin:4px 0}
+.page-leaf .member-paper.m4 .m4-skill-group .scribble-list li{font-size:11px;padding:2px 5px}
+.page-leaf .member-paper.m4 .m4-skill-group:nth-child(2){
+  width:min(100%,240px);
+  justify-self:center;
+  grid-column:1/-1;
+  grid-row:2;
+  min-height:54px;
+}
+.page-leaf .member-paper.m4 .m4-skill-group:nth-child(3){grid-column:2;grid-row:1}
+.page-leaf .member-paper.m4 .signature{margin:10px 0 0;font-size:15px}
+.page-leaf .member-paper.m4 .m4-project-grid{grid-template-columns:1fr;gap:8px;margin-top:8px}
+.page-leaf .member-paper.m4 .m4-project{padding:7px;box-shadow:3px 3px 0 rgba(64,51,77,.07)}
+.page-leaf .member-paper.m4 .m4-project-art--image{height:82px;min-height:82px;margin-bottom:5px}
+.page-leaf .member-paper.m4 .m4-project-art--image img{height:82px;object-fit:contain}
+.page-leaf .member-paper.m4 .m4-project h3{font-size:18px!important;margin:3px 0}
+.page-leaf .member-paper.m4 .m4-project p{font-size:12px;margin:3px 0;line-height:1.25}
+.page-leaf .member-paper.m4 .m4-project-label{font-size:10px!important}
+.page-leaf .member-paper.m4 .m4-interest-grid{grid-template-columns:1fr 1fr;gap:7px}
+.page-leaf .member-paper.m4 .m4-interest{padding:7px 8px;border-left-width:3px}
+.page-leaf .member-paper.m4 .m4-interest h3,
+.page-leaf .member-paper.m4 .m4-interest .m4-image-trigger-title{font-size:15px!important}
+.page-leaf .member-paper.m4 .m4-interest p,
+.page-leaf .member-paper.m4 .m4-interest .m4-image-trigger-copy{font-size:12px;line-height:1.22;margin-top:2px}
+.page-leaf .member-paper.m4 .m4-music-interest{grid-column:2!important;grid-row:1!important;align-self:start}
+.page-leaf .member-paper.m4 .m4-music-heading h3{font-size:16px!important}
+.page-leaf .member-paper.m4 .m4-music-collapse{font-size:13px!important;padding:1px 7px}
+.page-leaf .member-paper.m4 .m4-music-start,.page-leaf .member-paper.m4 .m4-music-controls button,.page-leaf .member-paper.m4 .m4-music-controls a{min-height:30px;padding:4px 8px;font-size:12px}
+.page-leaf .member-paper.m4 .m4-music-frame{height:150px;max-width:none}
+.page-leaf .member-paper.m4 .m4-music-frame iframe{height:150px!important}
+.page-leaf .member-paper.m4 .m4-music-title{font-size:14px!important;margin-top:6px}
+.page-leaf .member-paper.m4 .m4-music-status{font-size:12px}
+.page-leaf .member-paper.m4 .m4-foxy-card{margin:8px 0 0;padding:5px 8px;font-size:13px!important}
+.page-leaf .member-paper.m4 .m4-open-space{min-height:58px;margin:8px 0;font-size:14px}
+.page-leaf .member-paper.m4 .m4-links{grid-template-columns:1fr;gap:4px}
+.page-leaf .member-paper.m4 .m4-links p{padding:5px 7px;font-size:12px}
+
+/* MEMBER 1-INSPIRED PROFILE FRAME */
+.page-leaf .member-paper.m4 .m4-profile-grid{
+  grid-template-columns:minmax(0,1fr) 116px;
+  align-items:start;
+}
+.page-leaf .member-paper.m4 .m4-doodle{
+  position:relative;
+  width:116px;
+  min-height:156px;
+  height:156px;
+  padding:8px 6px 3px;
+  border:2px solid #17202b;
+  border-radius:0;
+  background:#fff;
+  transform:rotate(1.8deg);
+  box-shadow:3px 5px 0 rgba(0,0,0,.18);
+  overflow:visible;
+}
+.page-leaf .member-paper.m4 .m4-doodle:before{
+  content:'';
+  position:absolute;
+  z-index:2;
+  top:-9px;
+  left:50%;
+  width:72px;
+  height:17px;
+  transform:translateX(-50%) rotate(-3deg);
+  background:rgba(255,236,150,.9);
+  box-shadow:0 1px 2px rgba(0,0,0,.16);
+}
+.page-leaf .member-paper.m4 .m4-doodle img{
+  height:112px;
+  margin:0 auto 2px;
+  filter:none;
+}
+.page-leaf .member-paper.m4 .m4-doodle .handwritten{
+  height:22px;
+  min-height:0;
+  padding:2px 2px 0;
+  border-top:1px solid rgba(23,32,43,.12);
+  font-size:7px!important;
+  line-height:.9!important;
+  letter-spacing:-.2px;
+  text-align:center;
+  overflow-wrap:normal;
+  overflow:hidden;
+}
+
+/* PROFILE FACTS: Give the compact cards the same loose scrapbook rhythm as page 3. */
+.m4 .m4-facts .m4-course{
+  position:relative;
+  z-index:1;
+  background:#fff1ad;
+  transform:rotate(-1deg);
+}
+.m4 .m4-facts .m4-school{
+  position:relative;
+  z-index:1;
+  margin-top:4px;
+  background:#f6d5d4;
+  transform:rotate(1deg);
+}
+.m4 .m4-facts .m4-focus{
+  position:relative;
+  z-index:1;
+  margin-top:-2px;
+  background:#dbeaf8;
+  transform:rotate(.8deg);
+}
+.m4 .m4-facts .m4-goals{
+  position:relative;
+  z-index:1;
+  grid-column:auto;
+  margin-left:0;
+  background:#dcefd3;
+  transform:rotate(-.45deg);
+}
+.page-leaf .member-paper.m4 .m4-facts{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  width:100%;
+  margin:12px 0 4px;
+}
+.page-leaf .member-paper.m4 .m4-facts dd{
+  font-size:10px;
+}
+.page-preview-sheet .member-paper.m4 .m4-facts{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.page-preview-sheet .member-paper.m4 .m4-facts .m4-goals{
+  grid-column:auto;
+}
+
+/* FIXATIONS: Staggered scrapbook layout instead of a full vertical stack. */
+.page-leaf .member-paper.m4 .m4-interest-grid,
+.page-preview-sheet .member-paper.m4 .m4-interest-grid{
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  grid-auto-flow:dense;
+  grid-auto-rows:min-content;
+  gap:8px;
+  align-items:start;
+}
+.page-leaf .member-paper.m4 .m4-interest,
+.page-preview-sheet .member-paper.m4 .m4-interest{
+  position:relative;
+  align-self:start;
+  min-width:0;
+  border:2px solid rgba(64,51,77,.72);
+  border-left-width:2px;
+  border-radius:2px;
+  background:#fffef6;
+  box-shadow:3px 4px 0 rgba(64,51,77,.12);
+  transform:rotate(-.8deg);
+}
+.page-leaf .member-paper.m4 .m4-fun-interest,
+.page-preview-sheet .member-paper.m4 .m4-fun-interest{
+  grid-column:1;
+  grid-row:1;
+  background:#fff1ad;
+  transform:rotate(-1.1deg);
+}
+.page-leaf .member-paper.m4 .m4-music-interest,
+.page-preview-sheet .member-paper.m4 .m4-music-interest{
+  grid-column:2;
+  grid-row:1;
+  background:#f0e6f4;
+  transform:rotate(.7deg);
+}
+.page-leaf .member-paper.m4 .m4-did-you-interest,
+.page-preview-sheet .member-paper.m4 .m4-did-you-interest{
+  grid-column:1;
+  grid-row:2;
+  background:#dbeaf8;
+  transform:rotate(.9deg);
+}
+.page-leaf .member-paper.m4 .m4-looking-interest,
+.page-preview-sheet .member-paper.m4 .m4-looking-interest{
+  grid-column:1;
+  grid-row:3;
+  background:#f6dfbc;
+  transform:rotate(-.5deg);
+}
+.page-leaf .member-paper.m4 .m4-interest h3,
+.page-leaf .member-paper.m4 .m4-interest .m4-image-trigger-title,
+.page-preview-sheet .member-paper.m4 .m4-interest h3,
+.page-preview-sheet .member-paper.m4 .m4-interest .m4-image-trigger-title{
+  font-size:16px!important;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+}
+.page-leaf .member-paper.m4 .m4-music-interest{
+  align-self:start;
+  grid-column:2!important;
+  grid-row:1/span 3!important;
+}
+.page-preview-sheet .member-paper.m4 .m4-music-interest{
+  align-self:start;
+  grid-column:2!important;
+  grid-row:1/span 3!important;
+}
+.page-leaf .member-paper.m4 .m4-music-frame{
+  height:112px;
+  min-width:0;
+}
+.page-leaf .member-paper.m4 .m4-music-frame iframe{
+  height:112px!important;
+}
+.page-leaf .member-paper.m4 .m4-music-start,
+.page-leaf .member-paper.m4 .m4-music-controls button,
+.page-leaf .member-paper.m4 .m4-music-controls a{
+  width:100%;
+  min-height:29px;
+  font-size:11px;
+}
+.page-preview-sheet .member-paper.m4 .m4-skill-groups{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:start;
+}
+.page-preview-sheet .member-paper.m4 .m4-skill-group:nth-child(2){
+  width:min(100%,300px);
+  justify-self:center;
+  grid-column:1/-1;
+  min-height:0;
+}
+.page-preview-sheet .member-paper.m4 .m4-interest-grid{
+  align-items:start;
+  grid-auto-rows:min-content;
+}
+.page-preview-sheet .member-paper.m4 .m4-interest{
+  align-self:start;
+}
+.page-preview-sheet .member-paper.m4 .m4-music-interest{
+  align-self:start;
+}
+.page-preview-sheet .member-paper.m4 .m4-doodle .handwritten{font-size:12px!important;line-height:1.05!important}
+
+/* MAXIMIZED PREVIEW: Keep the same visual language while using the larger canvas. */
+.page-preview-sheet .member-paper.m4{
+  --m4-ink:#40334d;
+  --m4-plum:#76518f;
+  --m4-gold:#e7c56a;
+  padding:56px 72px 64px 108px!important;
+  font-size:20px;
+}
+.page-preview-sheet .member-paper.m4 h1{font-size:68px!important;margin-bottom:16px}
+.page-preview-sheet .member-paper.m4 h2{font-size:38px!important;margin:20px 0 8px}
+.page-preview-sheet .member-paper.m4 .m4-kicker{font-size:13px!important;padding:7px 11px}
+.page-preview-sheet .member-paper.m4 .member-tagline{font-size:25px!important}
+.page-preview-sheet .member-paper.m4 .m4-profile-grid{grid-template-columns:minmax(0,1fr) 260px;gap:28px}
+.page-preview-sheet .member-paper.m4 .m4-doodle{width:260px;min-height:350px;height:350px;padding:18px 14px 6px;border:3px solid #17202b;border-radius:0;background:#fff;transform:rotate(1.8deg);box-shadow:6px 9px 0 rgba(0,0,0,.18);overflow:visible}
+.page-preview-sheet .member-paper.m4 .m4-doodle:before{content:'';position:absolute;z-index:2;top:-18px;left:50%;width:144px;height:34px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,236,150,.9);box-shadow:0 2px 4px rgba(0,0,0,.16)}
+.page-preview-sheet .member-paper.m4 .m4-doodle img{height:268px;margin:0 auto 4px;filter:none}
+.page-preview-sheet .member-paper.m4 .m4-doodle .handwritten{height:32px;min-height:0;padding:5px 4px 0;border-top:1px solid rgba(23,32,43,.12);font-size:12px!important;line-height:1.05!important;text-align:center;overflow:hidden}
+.page-preview-sheet .member-paper.m4 .m4-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0 8px}
+.page-preview-sheet .member-paper.m4 .m4-facts div{min-height:82px;padding:12px}
+.page-preview-sheet .member-paper.m4 .m4-facts dt{font-size:13px}
+.page-preview-sheet .member-paper.m4 .m4-facts dd{font-size:14px;line-height:1.25}
+.page-preview-sheet .member-paper.m4 .m4-skill-groups{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.page-preview-sheet .member-paper.m4 .m4-skill-group{min-height:118px;padding:10px 12px}
+.page-preview-sheet .member-paper.m4 .m4-skill-group:nth-child(2){grid-column:1/-1;grid-row:2;width:min(100%,420px);justify-self:center;min-height:0}
+.page-preview-sheet .member-paper.m4 .m4-skill-group:nth-child(3){grid-column:2;grid-row:1}
+.page-preview-sheet .member-paper.m4 .m4-skill-group h3,
+.page-preview-sheet .member-paper.m4 .m4-skill-group .m4-skill-group-title{font-size:21px!important}
+.page-preview-sheet .member-paper.m4 .m4-skill-group .scribble-list li{font-size:16px}
+.page-preview-sheet .member-paper.m4 .m4-project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.page-preview-sheet .member-paper.m4 .m4-project{padding:12px}
+.page-preview-sheet .member-paper.m4 .m4-project-art--image{height:190px;min-height:190px}
+.page-preview-sheet .member-paper.m4 .m4-project-art--image img{height:190px}
+.page-preview-sheet .member-paper.m4 .m4-project h3{font-size:28px!important}
+.page-preview-sheet .member-paper.m4 .m4-project p{font-size:16px}
+.page-preview-sheet .member-paper.m4 .m4-interest h3,
+.page-preview-sheet .member-paper.m4 .m4-interest .m4-image-trigger-title{font-size:22px!important}
+.page-preview-sheet .member-paper.m4 .m4-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
+.page-preview-sheet .member-paper.m4 .m4-links p{font-size:18px;padding:8px 10px}
+@media(max-width:600px){
+  .page-preview-sheet .member-paper.m4{padding:38px 24px 44px 68px!important}
+  .page-preview-sheet .member-paper.m4 .m4-profile-grid{grid-template-columns:1fr;gap:18px}
+  .page-preview-sheet .member-paper.m4 .m4-doodle{width:190px;height:260px;min-height:260px;justify-self:center;padding:12px 10px 4px}
+  .page-preview-sheet .member-paper.m4 .m4-doodle img{height:194px}
+  .page-preview-sheet .member-paper.m4 .m4-doodle .handwritten{height:26px;font-size:10px!important}
+  .page-preview-sheet .member-paper.m4 .m4-facts{gap:8px}
+  .page-preview-sheet .member-paper.m4 .m4-facts div{min-height:64px;padding:8px}
+  .page-preview-sheet .member-paper.m4 .m4-facts dt{font-size:10px}
+  .page-preview-sheet .member-paper.m4 .m4-facts dd{font-size:12px}
+  .page-preview-sheet .member-paper.m4 .m4-skill-groups{gap:8px}
+  .page-preview-sheet .member-paper.m4 .m4-skill-group{min-height:86px;padding:8px}
+  .page-preview-sheet .member-paper.m4 .m4-skill-group:nth-child(2){width:min(100%,240px)}
+  .page-preview-sheet .member-paper.m4 .m4-project-grid{grid-template-columns:1fr}
+  .page-preview-sheet .member-paper.m4 .m4-interest-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}
 }
 </style>
 <script>
@@ -447,27 +842,27 @@
   <section>
     <h2>First, the basics</h2>
     <p>Hey there! I'm Manu G. Octaviano. I'm a 3rd year BSIT student who's just trying to survive.</p>
-    <p>[Add a little more about your background, goals, or what you hope to learn.]</p>
-    <!-- BACKGROUND: Fill in your course, school, current focus, and a personal margin note. -->
-    <dl class="m4-facts">
-      <div><dt>COURSE</dt><dd>BSIT 3-1</dd></div>
-      <div><dt>SCHOOL</dt><dd>PLM</dd></div>
-      <div><dt>FOCUS</dt><dd>Trying to survive this semester.</dd></div>
-      <div class="m4-goals"><dt>MY GOALS RIGHT NOW</dt><dd>Better ways at doomscrolling, vibecoding, and avoiding doing work.</dd></div>
-    </dl>
+    <p>My interests are shifting from routine assignments toward practical apps, fitness, data, and learning new tools by building real projects.</p>
   </section>
   <button class="m4-doodle m4-profile-trigger" type="button" aria-label="Profile photo. Click five times quickly for a surprise." title="Click five times quickly for a surprise" th:attr="data-surprise-image=@{/images/profile-surprise.jpg},data-surprise-audio=@{/audio/vine-boom.mp3}">
     <img th:src="@{/images/m4-character.png}" alt="My profile photo">
     <span class="handwritten">Accurate representation of me frfr</span>
   </button>
 </div>
+<!-- BACKGROUND: Fill in your course, school, current focus, and a personal margin note. -->
+<dl class="m4-facts">
+  <div class="m4-course"><dt>COURSE</dt><dd>BSIT 3-1</dd></div>
+  <div class="m4-school"><dt>SCHOOL</dt><dd>PLM</dd></div>
+  <div class="m4-focus"><dt>FOCUS</dt><dd>Trying to survive this semester.</dd></div>
+  <div class="m4-goals"><dt>MY GOALS RIGHT NOW</dt><dd>Better ways at doomscrolling, vibecoding, and avoiding doing work.</dd></div>
+</dl>
 <section>
   <!-- SKILLS: Replace the bracketed items; duplicate a group or list item to add more. -->
   <div class="m4-section-title"><h2>Things I work with</h2><small>skills can grow here →</small></div>
   <div class="m4-skill-groups">
     <div class="m4-skill-group"><h3>Languages</h3><ul class="scribble-list"><li>Java</li><li>Python</li><li>PHP</li><li>JavaScript</li><li>C++</li></ul></div>
-    <button class="m4-skill-group m4-skeleton-trigger" type="button" aria-label="Play the skeleton animation once" title="Play the skeleton animation once" th:attr="data-skeleton-gif=@{/images/skeleton-running-once.gif}"><span class="m4-skill-group-title">I dunno what to put here</span></button>
-    <div class="m4-skill-group"><h3>Other skills</h3><ul class="scribble-list"><li>Doomscrolling</li><li>Vibecoding</li></ul></div>
+    <button class="m4-skill-group m4-skeleton-trigger" type="button" aria-label="Play the skeleton animation once" title="Play the skeleton animation once" th:attr="data-skeleton-gif=@{/images/skeleton-running-once.gif}"><span class="m4-skill-group-title">I don't know what to put here</span><ul class="scribble-list"><li>Click this box</li><li>Something might happen</li></ul></button>
+    <div class="m4-skill-group"><h3>Other skills</h3><ul class="scribble-list"><li>Doomscrolling</li><li>Vibecoding</li><li>Debugging</li></ul></div>
   </div>
 </section>
 <p class="signature">Flip on for projects →</p>
@@ -512,11 +907,11 @@
 <p class="member-tagline">“The details that make this page mine.”</p>
 <!-- INTERESTS: Replace each prompt with hobbies, favorite media, personal facts, or goals. -->
 <section class="m4-interest-grid" aria-label="Personal interests">
-  <div class="m4-interest"><h3>For fun</h3><p>Exercising, playing games, doomscrolling, and NOT doing work</p></div>
+  <button class="m4-interest m4-fun-interest m4-image-trigger" type="button" aria-haspopup="dialog" aria-label="Show the For fun image" data-dialog-label="For fun image" th:attr="data-image-src=@{/images/m4-for-fun.png}" data-image-alt="A meme of a student saying he spends all day on TikTok and wants to go talk to women"><span class="m4-image-trigger-title">For fun</span><span class="m4-image-trigger-copy">Exercising, playing games, doomscrolling, and NOT doing work</span></button>
   <div class="m4-interest m4-music-interest" data-m4-music th:attr="data-youtube-api-key=${youtubeApiKey}">
     <div class="m4-music-heading">
       <h3>On repeat</h3>
-      <button class="m4-music-collapse" type="button" data-music-collapse aria-expanded="true" aria-label="Minimize On repeat card">−</button>
+      <button class="m4-music-collapse" type="button" data-music-collapse aria-expanded="false" aria-label="Maximize On repeat card" disabled>+</button>
     </div>
     <div class="m4-music-content" data-music-content>
       <p>Two playlists, one shuffle pool. Pick a random song:</p>
@@ -536,8 +931,8 @@
       </div>
     </div>
   </div>
-  <button class="m4-interest m4-image-trigger" type="button" aria-haspopup="dialog" aria-label="Show the Did you know? image" data-dialog-label="Did you know image" th:attr="data-image-src=@{/images/did-you-know.jpg}" data-image-alt="A woolly mammoth standing outdoors under a meme caption"><span class="m4-image-trigger-title">Did you know?</span><span class="m4-image-trigger-copy">I used to be an upstading, honor roll student! Key words: Used to.</span></button>
-  <button class="m4-interest m4-image-trigger" type="button" aria-haspopup="dialog" aria-label="Show the Looking ahead image" data-dialog-label="Looking ahead image" th:attr="data-image-src=@{/images/looking-ahead.jpg(v=2)}" data-image-alt="A meme of a silhouette lifting chains while thinking he is free"><span class="m4-image-trigger-title">Looking ahead</span><span class="m4-image-trigger-copy">I really wish to just graduate and pass all my classes from here on out.</span></button>
+  <button class="m4-interest m4-did-you-interest m4-image-trigger" type="button" aria-haspopup="dialog" aria-label="Show the Did you know? image" data-dialog-label="Did you know image" th:attr="data-image-src=@{/images/did-you-know.jpg}" data-image-alt="A woolly mammoth standing outdoors under a meme caption"><span class="m4-image-trigger-title">Did you know?</span><span class="m4-image-trigger-copy">I used to be an outstanding, honor-roll student. Key words: used to.</span></button>
+  <button class="m4-interest m4-looking-interest m4-image-trigger" type="button" aria-haspopup="dialog" aria-label="Show the Looking ahead image" data-dialog-label="Looking ahead image" th:attr="data-image-src=@{/images/looking-ahead.jpg(v=2)}" data-image-alt="A meme of a silhouette lifting chains while thinking he is free"><span class="m4-image-trigger-title">Looking ahead</span><span class="m4-image-trigger-copy">I really wish to just graduate and pass all my classes from here on out.</span></button>
 </section>
 <!-- FOXY EASTER EGG: This button is intentionally styled as a scrapbook note. -->
 <button class="m4-foxy-card" type="button" aria-label="Play Foxy's jumpscare video" aria-haspopup="dialog" th:attr="data-jumpscare-video=@{/videos/foxy-jumpscare.webm}">Do NOT click this</button>
@@ -550,15 +945,15 @@
   <h2>Find me elsewhere</h2>
   <!-- LINKS: Replace each URL prompt and make it a link to your real profile when ready. -->
   <div class="m4-links">
-    <p><strong>GitHub:</strong> https://github.com/ManuPLM</p>
-    <p><strong>LinkedIn:</strong> What is this?</p>
-    <p><strong>Portfolio / blog:</strong> This is my portfolio.</p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/ManuPLM" target="_blank" rel="noopener noreferrer">ManuPLM ↗</a></p>
+    <p><strong>LinkedIn:</strong> <span>Coming soon</span></p>
+    <p><strong>Portfolio / blog:</strong> <a th:href="@{/?open=true}">You are here ↗</a></p>
     <p><strong>Other:</strong> Got nothing...</p>
   </div>
 </section>
 <!-- SIGN-OFF: Replace the name and note with your own closing message. -->
 <p class="signature">Thanks for stopping by!</p>
-<script th:src="@{/js/member4-music.js(v=2)}" defer></script>
+<script th:src="@{/js/member4-music.js(v=3)}" defer></script>
 </article>
 
 <!-- ROUTE NAVIGATION: These links return to the index and move between member pages. -->

@@ -184,6 +184,7 @@
 
 .page-preview-sheet.portfolio-page {
     overflow: visible !important;
+    padding: 0 !important;
     background-color: var(--paper);
 }
 
@@ -296,6 +297,10 @@
         width: calc(96vw - 48px) !important;
         min-height: 900px !important;
         padding: 38px 24px 44px 50px !important;
+    }
+
+    .page-preview-sheet.paper-page.portfolio-page {
+        padding: 0 !important;
     }
 
     .page-preview-sheet.portfolio-page .member-paper {
