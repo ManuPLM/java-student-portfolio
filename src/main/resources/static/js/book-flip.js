@@ -235,6 +235,23 @@
   };
   selectBookPage = flipTo;
 
+  document.querySelectorAll('.tab-rail [data-go]').forEach((tab) => {
+    tab.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetPage = Number(tab.dataset.go);
+      if (!Number.isInteger(targetPage) || targetPage < 0 || targetPage >= leaves.length) {
+        console.error(`Invalid bookmark target page: ${tab.dataset.go}`);
+        return;
+      }
+      if (!book.classList.contains('is-open')) {
+        book.classList.add('is-open');
+        cover.setAttribute('aria-expanded', 'true');
+        cover.setAttribute('aria-label', 'Close the diary cover');
+        updateStack();
+      }
+      flipTo(targetPage);
+    });
+  });
 
   cover.addEventListener('click', () => {
     const open = !book.classList.contains('is-open');

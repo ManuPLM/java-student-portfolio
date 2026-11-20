@@ -32,15 +32,23 @@
 .m4 .m4-doodle img{display:block;width:auto;max-width:100%;height:160px;object-fit:contain;margin:0 auto 7px}
 .m4 .m4-doodle .doodle-person{margin:3px auto 7px}
 .m4 .m4-doodle .handwritten{font-size:20px;margin:0}
+.m4 .m4-profile-trigger{appearance:none;width:100%;font:inherit;color:inherit;cursor:pointer}
+.m4 .m4-profile-trigger:focus-visible{outline:3px dashed var(--m4-plum);outline-offset:4px}
 /* SKILLS: Adjust the number of columns and the appearance of each skill group here. */
 .m4 .m4-section-title{display:flex;align-items:baseline;gap:10px}
 .m4 .m4-section-title small{font:15px var(--scribble);color:var(--m4-plum)}
 .m4 .m4-skill-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
 .m4 .m4-skill-group{padding:8px 10px;background:rgba(255,255,255,.48);border:1.5px solid rgba(64,51,77,.65);transform:rotate(-.5deg)}
 .m4 .m4-skill-group:nth-child(even){transform:rotate(.7deg);background:#f3edf6}
-.m4 .m4-skill-group h3{font:700 20px var(--scribble);margin:0}
+.m4 .m4-skill-group h3,.m4 .m4-skill-group .m4-skill-group-title{display:block;font:700 20px var(--scribble);margin:0}
+.m4 .m4-skill-group.m4-skeleton-trigger{appearance:none;display:block;width:100%;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.m4 .m4-skeleton-trigger:focus-visible{outline:3px dashed var(--m4-plum);outline-offset:3px}
+.m4 .m4-skeleton-trigger.is-played{cursor:default}
 .m4 .m4-skill-group .scribble-list{gap:6px;margin:6px 0}
 .m4 .m4-skill-group .scribble-list li{font-size:15px;padding:3px 8px}
+.m4-skeleton-surprise{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;pointer-events:none;background:transparent}
+.m4-skeleton-surprise img{display:block;width:90vw;height:90vh;max-width:900px;max-height:90vh;max-height:90dvh;object-fit:contain}
+.m4-skeleton-error{display:block;margin-top:8px;color:#8e342b;font:16px var(--scribble)}
 /* PROJECTS: These rules style the reusable project cards on page 2. */
 .m4 .m4-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
 .m4 .m4-project{height:100%;padding:12px 14px}
@@ -54,8 +62,11 @@
 .m4 .m4-interest-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .m4 .m4-interest{padding:10px 12px;background:#f3edf6;border-left:4px solid var(--m4-plum);transform:rotate(-.6deg)}
 .m4 .m4-interest:nth-child(even){background:#fff7dd;border-color:#c49c38;transform:rotate(.6deg)}
-.m4 .m4-interest h3{font:700 21px var(--scribble);margin:0}
-.m4 .m4-interest p{margin:4px 0 0}
+.m4 .m4-interest.m4-image-trigger{box-sizing:border-box;width:100%;border:0;border-left:4px solid var(--m4-plum);background:#f3edf6;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.m4 .m4-image-trigger:hover,.m4 .m4-image-trigger:focus-visible{background:#eee3f3}
+.m4 .m4-image-trigger:focus-visible{outline:3px dashed var(--m4-plum);outline-offset:3px}
+.m4 .m4-interest h3,.m4 .m4-interest .m4-image-trigger-title{display:block;font:700 21px var(--scribble);margin:0}
+.m4 .m4-interest p,.m4 .m4-interest .m4-image-trigger-copy{display:block;margin:4px 0 0}
 .m4 .m4-music-interest{grid-column:1/-1}
 .m4 .m4-music-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .m4 .m4-music-heading h3{margin:0}
@@ -77,6 +88,9 @@
 .m4 .m4-music-status{margin:7px 0 0;font:16px var(--scribble);color:#66556f}
 .m4 .m4-music-status.is-error{color:#8e342b}
 .m4 .m4-open-space{min-height:90px;display:grid;place-items:center;margin:15px 0;padding:12px;border:2px dashed #9a82a5;background:rgba(255,255,255,.3);color:#6b5b72;text-align:center;font:20px var(--scribble)}
+.m4 .m4-open-space summary{cursor:pointer}
+.m4 .m4-open-space summary:focus-visible{outline:3px dashed var(--m4-plum);outline-offset:3px}
+.m4 .m4-scrapbook-image{display:block;max-width:100%;max-height:70vh;width:auto;height:auto;margin:14px auto 0;border:2px solid var(--m4-ink);box-shadow:3px 4px 0 rgba(64,51,77,.18);object-fit:contain}
 .m4 .m4-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 15px}
 .m4 .m4-links p{margin:3px 0}
 .m4 .signature{color:var(--m4-plum)}
@@ -87,6 +101,21 @@
 .m4-foxy-overlay::backdrop{background:rgba(0,0,0,.94)}
 .m4-foxy-overlay video{display:block;width:auto;height:auto;max-width:96vw;max-height:96vh;max-height:96dvh;object-fit:contain;object-position:center;background:transparent}
 .m4-foxy-error{max-width:32em;padding:24px;color:#fff;text-align:center;font:700 clamp(20px,4vw,36px)/1.3 var(--scribble)}
+.m4-interest-image-dialog{box-sizing:border-box;max-width:94vw;max-height:94vh;max-height:94dvh;margin:auto;padding:14px;border:2px solid #40334d;background:#fffef6;color:#40334d;box-shadow:0 12px 48px rgba(18,14,10,.4)}
+.m4-interest-image-dialog::backdrop{background:rgba(18,14,10,.72);backdrop-filter:blur(3px)}
+.m4-interest-image-dialog img{display:block;max-width:calc(94vw - 32px);max-height:calc(94vh - 78px);max-height:calc(94dvh - 78px);width:auto;height:auto;object-fit:contain}
+.m4-interest-image-close{display:block;margin:0 0 10px auto;padding:5px 12px;border:1.5px solid #40334d;border-radius:6px;background:#fff7dd;color:#40334d;font:700 16px var(--scribble);cursor:pointer}
+.m4-interest-image-close:focus-visible{outline:3px dashed #76518f;outline-offset:3px}
+.m4-profile-surprise-dialog{box-sizing:border-box;position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;margin:0;padding:68px 16px 20px;border:0;background:#100e14;color:#fff;overflow:hidden}
+.m4-profile-surprise-dialog[open]{display:grid;grid-template-rows:minmax(0,1fr);justify-items:center;align-items:center}
+.m4-profile-surprise-dialog::backdrop{background:rgba(0,0,0,.9)}
+.m4-profile-surprise-dialog .m4-profile-surprise-image{display:block;max-width:94vw;max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);width:auto;height:auto;object-fit:contain}
+.m4-profile-surprise-close{position:absolute;top:14px;right:14px;z-index:2;padding:6px 12px;border:1.5px solid #fff;border-radius:6px;background:#fff7dd;color:#40334d;font:700 16px var(--scribble);cursor:pointer}
+.m4-profile-surprise-close:focus-visible{outline:3px dashed #fff;outline-offset:3px}
+.m4-profile-surprise-error{z-index:2;max-width:90vw;color:#fff;text-align:center}
+.m4-profile-flash{position:fixed;inset:0;z-index:3;background:#fff;pointer-events:none;animation:m4-profile-flash 260ms ease-out both}
+@keyframes m4-profile-flash{0%,100%{opacity:0}10%{opacity:1}55%{opacity:.55}}
+@media(prefers-reduced-motion:reduce){.m4-profile-flash{display:none}}
 /* BOOK VIEW: Keep text readable and let the page viewport scroll instead of clipping content. */
 .page-leaf .member-paper.m4{width:100%!important;height:auto!important;min-height:100%;overflow:visible!important;transform:none!important}
 /* BOOK PAPER: Extend the ruling and red margin line over the full scrollable Member 4 sheet. */
@@ -106,6 +135,15 @@
   window.__m4FoxyEggReady = true;
   let dialog = null;
   let trigger = null;
+  let imageDialog = null;
+  let imageTrigger = null;
+  let profileSurpriseDialog = null;
+  let profileSurpriseTrigger = null;
+  const profileClickStates = new WeakMap();
+  const profileClickThreshold = 5;
+  const profileClickWindowMs = 2200;
+  let skeletonIsPlaying = false;
+  const skeletonPlaybackDurationMs = 3740;
 
   const closeDialog = () => {
     if (!dialog) return;
@@ -124,11 +162,108 @@
     trigger = null;
   };
 
+  const closeImageDialog = () => {
+    if (!imageDialog) return;
+    const activeDialog = imageDialog;
+    imageDialog = null;
+    if (activeDialog.open) activeDialog.close();
+    activeDialog.remove();
+    if (imageTrigger?.isConnected) imageTrigger.focus();
+    imageTrigger = null;
+  };
+
+  const closeProfileSurprise = () => {
+    if (!profileSurpriseDialog) return;
+    const activeDialog = profileSurpriseDialog;
+    profileSurpriseDialog = null;
+    const audio = activeDialog.querySelector('audio');
+    if (audio) {
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+    }
+    if (activeDialog.open) activeDialog.close();
+    activeDialog.remove();
+    if (profileSurpriseTrigger?.isConnected) profileSurpriseTrigger.focus();
+    profileSurpriseTrigger = null;
+  };
+
+  const showProfileSurprise = (card) => {
+    if (profileSurpriseDialog) return;
+    profileSurpriseTrigger = card;
+
+    const activeDialog = document.createElement('dialog');
+    profileSurpriseDialog = activeDialog;
+    activeDialog.className = 'm4-profile-surprise-dialog';
+    activeDialog.setAttribute('aria-label', 'Profile picture surprise');
+    activeDialog.setAttribute('aria-modal', 'true');
+    activeDialog.addEventListener('cancel', (cancelEvent) => {
+      cancelEvent.preventDefault();
+    });
+
+    const announceError = (message) => {
+      if (!activeDialog.isConnected) return;
+      const error = document.createElement('p');
+      error.className = 'm4-profile-surprise-error';
+      error.setAttribute('role', 'alert');
+      error.textContent = message;
+      activeDialog.append(error);
+    };
+
+    const closeButton = document.createElement('button');
+    closeButton.className = 'm4-profile-surprise-close';
+    closeButton.type = 'button';
+    closeButton.textContent = 'Close';
+    closeButton.addEventListener('click', closeProfileSurprise);
+
+    const image = document.createElement('img');
+    image.className = 'm4-profile-surprise-image';
+    image.alt = 'A man raises his hand in front of a stop sign.';
+    image.addEventListener('error', () => {
+      announceError('The surprise image could not be loaded.');
+    }, { once: true });
+
+    const audio = document.createElement('audio');
+    audio.hidden = true;
+    audio.preload = 'auto';
+    audio.setAttribute('aria-label', 'Vine boom sound effect');
+    audio.addEventListener('error', () => {
+      announceError('The sound could not be loaded.');
+    }, { once: true });
+
+    activeDialog.append(closeButton, image, audio);
+    document.body.append(activeDialog);
+    activeDialog.showModal();
+    closeButton.focus();
+    image.src = card.dataset.surpriseImage;
+    audio.src = card.dataset.surpriseAudio;
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const flash = document.createElement('div');
+      flash.className = 'm4-profile-flash';
+      flash.setAttribute('aria-hidden', 'true');
+      flash.addEventListener('animationend', () => flash.remove(), { once: true });
+      activeDialog.append(flash);
+    }
+
+    const playback = audio.play();
+    if (playback) {
+      playback.catch(() => announceError('The sound could not be played.'));
+    }
+  };
+
   document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape' || !dialog) return;
+    if (event.key !== 'Escape') return;
+    if (profileSurpriseDialog) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+    if (!dialog && !imageDialog) return;
     event.preventDefault();
     event.stopPropagation();
-    closeDialog();
+    if (dialog) closeDialog();
+    else closeImageDialog();
   }, true);
 
   document.addEventListener('click', (event) => {
@@ -181,6 +316,125 @@
       playback.catch(showPlaybackError);
     }
   }, true);
+
+  document.addEventListener('click', (event) => {
+    const card = event.target instanceof Element
+      ? event.target.closest('.m4-image-trigger')
+      : null;
+    if (!card || imageDialog) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    imageTrigger = card;
+
+    const activeDialog = document.createElement('dialog');
+    imageDialog = activeDialog;
+    activeDialog.className = 'm4-interest-image-dialog';
+    activeDialog.setAttribute('aria-label', card.dataset.dialogLabel);
+    activeDialog.setAttribute('aria-modal', 'true');
+    activeDialog.addEventListener('cancel', (cancelEvent) => {
+      cancelEvent.preventDefault();
+      closeImageDialog();
+    });
+    activeDialog.addEventListener('click', (dialogEvent) => {
+      if (dialogEvent.target === activeDialog) closeImageDialog();
+    });
+
+    const closeButton = document.createElement('button');
+    closeButton.className = 'm4-interest-image-close';
+    closeButton.type = 'button';
+    closeButton.textContent = 'Close image';
+    closeButton.addEventListener('click', closeImageDialog);
+
+    const image = document.createElement('img');
+    image.src = card.dataset.imageSrc;
+    image.alt = card.dataset.imageAlt;
+    image.addEventListener('error', () => {
+      const error = document.createElement('p');
+      error.setAttribute('role', 'alert');
+      error.textContent = 'The image could not be loaded.';
+      activeDialog.append(error);
+    }, { once: true });
+
+    activeDialog.append(closeButton, image);
+    document.body.append(activeDialog);
+    activeDialog.showModal();
+    closeButton.focus();
+  }, true);
+
+  document.addEventListener('click', (event) => {
+    const card = event.target instanceof Element
+      ? event.target.closest('.m4-profile-trigger')
+      : null;
+    if (!card) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    if (profileSurpriseDialog) return;
+
+    const state = profileClickStates.get(card) || { count: 0, timeout: null };
+    state.count += 1;
+    if (state.timeout !== null) window.clearTimeout(state.timeout);
+    if (state.count >= profileClickThreshold) {
+      profileClickStates.delete(card);
+      showProfileSurprise(card);
+      return;
+    }
+    state.timeout = window.setTimeout(
+      () => profileClickStates.delete(card),
+      profileClickWindowMs
+    );
+    profileClickStates.set(card, state);
+  }, true);
+
+  document.addEventListener('click', (event) => {
+    const card = event.target instanceof Element
+      ? event.target.closest('.m4-skeleton-trigger')
+      : null;
+    if (!card) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    if (skeletonIsPlaying) return;
+
+    skeletonIsPlaying = true;
+    card.setAttribute('aria-disabled', 'true');
+    card.classList.add('is-played');
+    card.querySelector('.m4-skeleton-error')?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'm4-skeleton-surprise';
+    const image = document.createElement('img');
+    image.alt = 'A skeleton running across the screen.';
+
+    let removalScheduled = false;
+    const finishPlayback = () => {
+      overlay.remove();
+      skeletonIsPlaying = false;
+      card.removeAttribute('aria-disabled');
+      card.classList.remove('is-played');
+    };
+    const removeAfterOnePlay = () => {
+      if (removalScheduled) return;
+      removalScheduled = true;
+      window.setTimeout(finishPlayback, skeletonPlaybackDurationMs + 120);
+    };
+    image.addEventListener('load', removeAfterOnePlay, { once: true });
+    image.addEventListener('error', () => {
+      finishPlayback();
+      const error = document.createElement('span');
+      error.className = 'm4-skeleton-error';
+      error.setAttribute('role', 'alert');
+      error.textContent = 'The skeleton animation could not be loaded.';
+      card.append(error);
+      console.error('The skeleton one-shot GIF could not be loaded.');
+    }, { once: true });
+
+    overlay.append(image);
+    document.body.append(overlay);
+    image.src = card.dataset.skeletonGif;
+    if (image.complete && image.naturalWidth > 0) removeAfterOnePlay();
+  }, true);
 })();
 </script>
 <!-- BOOKMARK: Replace the ribbon symbol or fill color if you want a different decoration. -->
@@ -202,17 +456,17 @@
       <div class="m4-goals"><dt>MY GOALS RIGHT NOW</dt><dd>Better ways at doomscrolling, vibecoding, and avoiding doing work.</dd></div>
     </dl>
   </section>
-  <aside class="m4-doodle" aria-label="Profile photo">
+  <button class="m4-doodle m4-profile-trigger" type="button" aria-label="Profile photo. Click five times quickly for a surprise." title="Click five times quickly for a surprise" th:attr="data-surprise-image=@{/images/profile-surprise.jpg},data-surprise-audio=@{/audio/vine-boom.mp3}">
     <img th:src="@{/images/m4-character.png}" alt="My profile photo">
-    <p class="handwritten">Accurate representation of me frfr</p>
-  </aside>
+    <span class="handwritten">Accurate representation of me frfr</span>
+  </button>
 </div>
 <section>
   <!-- SKILLS: Replace the bracketed items; duplicate a group or list item to add more. -->
   <div class="m4-section-title"><h2>Things I work with</h2><small>skills can grow here →</small></div>
   <div class="m4-skill-groups">
     <div class="m4-skill-group"><h3>Languages</h3><ul class="scribble-list"><li>Java</li><li>Python</li><li>PHP</li><li>JavaScript</li><li>C++</li></ul></div>
-    <div class="m4-skill-group"><h3>I dunno what to put here</h3><ul class="scribble-list"></ul></div>
+    <button class="m4-skill-group m4-skeleton-trigger" type="button" aria-label="Play the skeleton animation once" title="Play the skeleton animation once" th:attr="data-skeleton-gif=@{/images/skeleton-running-once.gif}"><span class="m4-skill-group-title">I dunno what to put here</span></button>
     <div class="m4-skill-group"><h3>Other skills</h3><ul class="scribble-list"><li>Doomscrolling</li><li>Vibecoding</li></ul></div>
   </div>
 </section>
@@ -248,14 +502,13 @@
     <p><span class="m4-project-label">MY PART:</span> Contributed to the development of a web-based fitness management system, working with PHP and MySQL to support workout management, nutrition tracking, user accounts, and progress monitoring. Gained experience in database integration, application functionality, and responsive web development.</p>
   </section>
 </div>
-<p class="m4-note">More projects can be added by duplicating a card.</p>
 <p class="signature">Still collecting ideas…</p>
 </article>
 
 <!-- PAGE 3: Personal interests and links. Keep the page3 fragment name for notebook navigation. -->
 <article class="member-paper m4" th:fragment="page3">
 <p class="m4-kicker">INTERESTS AND STUFF</p>
-<h1>My fixations</h1>
+<h1>My fixations and stuff about me</h1>
 <p class="member-tagline">“The details that make this page mine.”</p>
 <!-- INTERESTS: Replace each prompt with hobbies, favorite media, personal facts, or goals. -->
 <section class="m4-interest-grid" aria-label="Personal interests">
@@ -283,25 +536,28 @@
       </div>
     </div>
   </div>
-  <div class="m4-interest"><h3>Small facts</h3><p>[A favorite, a collection, a habit, or a fact about you.]</p></div>
-  <div class="m4-interest"><h3>Looking ahead</h3><p>[A goal, place, skill, or experience you hope to explore.]</p></div>
+  <button class="m4-interest m4-image-trigger" type="button" aria-haspopup="dialog" aria-label="Show the Did you know? image" data-dialog-label="Did you know image" th:attr="data-image-src=@{/images/did-you-know.jpg}" data-image-alt="A woolly mammoth standing outdoors under a meme caption"><span class="m4-image-trigger-title">Did you know?</span><span class="m4-image-trigger-copy">I used to be an upstading, honor roll student! Key words: Used to.</span></button>
+  <button class="m4-interest m4-image-trigger" type="button" aria-haspopup="dialog" aria-label="Show the Looking ahead image" data-dialog-label="Looking ahead image" th:attr="data-image-src=@{/images/looking-ahead.jpg(v=2)}" data-image-alt="A meme of a silhouette lifting chains while thinking he is free"><span class="m4-image-trigger-title">Looking ahead</span><span class="m4-image-trigger-copy">I really wish to just graduate and pass all my classes from here on out.</span></button>
 </section>
 <!-- FOXY EASTER EGG: This button is intentionally styled as a scrapbook note. -->
-<button class="m4-foxy-card" type="button" aria-label="Play Foxy's jumpscare video" aria-haspopup="dialog" th:attr="data-jumpscare-video=@{/videos/foxy-jumpscare.webm}">Do NOT click this, LOL!</button>
-<!-- SCRAPBOOK SPACE: Add a personal photo, sticker, or note; this is intentionally left open. -->
-<div class="m4-open-space">[Optional: add a personal photo, sticker, or note here]</div>
+<button class="m4-foxy-card" type="button" aria-label="Play Foxy's jumpscare video" aria-haspopup="dialog" th:attr="data-jumpscare-video=@{/videos/foxy-jumpscare.webm}">Do NOT click this</button>
+<!-- SCRAPBOOK SPACE: Open the disclosure to reveal the surprise image. -->
+<details class="m4-open-space">
+  <summary>How life used to be</summary>
+  <img class="m4-scrapbook-image" th:src="@{/images/scrapbook-surprise.jpg}" alt="Robert Downey Jr. lying on the grass with his arms outstretched" loading="lazy" decoding="async">
+</details>
 <section>
   <h2>Find me elsewhere</h2>
   <!-- LINKS: Replace each URL prompt and make it a link to your real profile when ready. -->
   <div class="m4-links">
-    <p><strong>GitHub:</strong> [Add your profile URL]</p>
-    <p><strong>LinkedIn:</strong> [Add your profile URL]</p>
-    <p><strong>Portfolio / blog:</strong> [Add a link, if you have one]</p>
-    <p><strong>Other:</strong> [Add another relevant link]</p>
+    <p><strong>GitHub:</strong> https://github.com/ManuPLM</p>
+    <p><strong>LinkedIn:</strong> What is this?</p>
+    <p><strong>Portfolio / blog:</strong> This is my portfolio.</p>
+    <p><strong>Other:</strong> Got nothing...</p>
   </div>
 </section>
 <!-- SIGN-OFF: Replace the name and note with your own closing message. -->
-<p class="signature">Thanks for stopping by. — [Your name]</p>
+<p class="signature">Thanks for stopping by!</p>
 <script th:src="@{/js/member4-music.js(v=2)}" defer></script>
 </article>
 
