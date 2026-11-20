@@ -5,7 +5,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 <link rel="stylesheet" th:href="@{/css/wimpy-style.css}"><link rel="stylesheet" th:href="@{/css/page-preview.css}"><link rel="stylesheet" th:href="@{/css/wimpy-theme.css}">
-<script th:src="@{/js/book-flip.js}" defer></script><script th:src="@{/js/wimpy-fx.js}" defer></script>
+<script th:src="@{/js/book-flip.js(v=2)}" defer></script><script th:src="@{/js/wimpy-fx.js}" defer></script>
 </head>
 <body class="desk-page member-page">
 <main class="member-wrap">
@@ -29,6 +29,7 @@
 .m4 .m4-facts dt{font:700 13px var(--scribble);color:var(--m4-plum);letter-spacing:.7px}
 .m4 .m4-facts dd{margin:2px 0 0}
 .m4 .m4-doodle{min-height:188px;border:2px solid var(--m4-ink);background:rgba(255,255,255,.5);padding:12px;text-align:center;transform:rotate(1.5deg);box-shadow:3px 4px 0 rgba(64,51,77,.15)}
+.m4 .m4-doodle img{display:block;width:auto;max-width:100%;height:160px;object-fit:contain;margin:0 auto 7px}
 .m4 .m4-doodle .doodle-person{margin:3px auto 7px}
 .m4 .m4-doodle .handwritten{font-size:20px;margin:0}
 /* SKILLS: Adjust the number of columns and the appearance of each skill group here. */
@@ -44,6 +45,8 @@
 .m4 .m4-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
 .m4 .m4-project{height:100%;padding:12px 14px}
 .m4 .m4-project-art{min-height:96px;display:grid;place-items:center;margin-bottom:10px;border:1.5px dashed #756a7e;background:repeating-linear-gradient(135deg,rgba(238,229,242,.75) 0 8px,rgba(255,255,255,.5) 8px 16px);text-align:center;color:#66556f;font:17px var(--scribble)}
+.m4 .m4-project-art--image{min-height:0;padding:0;overflow:hidden;border-style:solid;background:#fff}
+.m4 .m4-project-art--image img{display:block;width:100%;height:auto;max-height:230px;object-fit:contain}
 .m4 .m4-project h3{margin-bottom:5px}
 .m4 .m4-project p{margin:5px 0}
 .m4 .m4-project .m4-project-label{font:700 14px var(--scribble);color:var(--m4-plum)}
@@ -53,6 +56,26 @@
 .m4 .m4-interest:nth-child(even){background:#fff7dd;border-color:#c49c38;transform:rotate(.6deg)}
 .m4 .m4-interest h3{font:700 21px var(--scribble);margin:0}
 .m4 .m4-interest p{margin:4px 0 0}
+.m4 .m4-music-interest{grid-column:1/-1}
+.m4 .m4-music-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.m4 .m4-music-heading h3{margin:0}
+.m4 .m4-music-collapse{flex:none;padding:2px 9px;border:1px solid var(--m4-ink);border-radius:6px;background:#fff7dd;color:var(--m4-ink);font:700 18px var(--scribble);cursor:pointer}
+.m4 .m4-music-collapse:hover,.m4 .m4-music-collapse:focus-visible{background:#f5e8bb}
+.m4 .m4-music-collapse:focus-visible{outline:3px dashed var(--m4-plum);outline-offset:3px}
+.m4 .m4-music-content[hidden]{display:none}
+.m4 .m4-music-start,.m4 .m4-music-controls button,.m4 .m4-music-controls a{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:7px 12px;border:1.5px solid var(--m4-ink);border-radius:8px;background:#fff7dd;color:var(--m4-ink);font:700 16px var(--scribble);text-decoration:none;cursor:pointer}
+.m4 .m4-music-start:hover,.m4 .m4-music-controls button:hover,.m4 .m4-music-controls a:hover{background:#f5e8bb}
+.m4 .m4-music-start:focus-visible,.m4 .m4-music-controls button:focus-visible,.m4 .m4-music-controls a:focus-visible{outline:3px dashed var(--m4-plum);outline-offset:3px}
+.m4 .m4-music-start:disabled,.m4 .m4-music-controls button:disabled{opacity:.55;cursor:wait}
+.m4 .m4-music-start[hidden],.m4 .m4-music-panel[hidden],.m4 .m4-music-artist[hidden],.m4 .m4-music-controls [hidden]{display:none}
+.m4 .m4-music-title{margin:10px 0 0;font:700 19px var(--scribble);color:var(--m4-ink);overflow-wrap:anywhere}
+.m4 .m4-music-artist{margin:2px 0 0;color:#66556f}
+.m4 .m4-music-frame{width:100%;max-width:420px;min-width:200px;height:200px;margin:10px auto;border:1.5px solid #756a7e;border-radius:8px;background:#fff;overflow:hidden}
+.m4 .m4-music-player-host{width:100%;height:100%}
+.m4 .m4-music-frame iframe{display:block;width:100%!important;height:200px!important;max-width:100%;border:0}
+.m4 .m4-music-controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.m4 .m4-music-status{margin:7px 0 0;font:16px var(--scribble);color:#66556f}
+.m4 .m4-music-status.is-error{color:#8e342b}
 .m4 .m4-open-space{min-height:90px;display:grid;place-items:center;margin:15px 0;padding:12px;border:2px dashed #9a82a5;background:rgba(255,255,255,.3);color:#6b5b72;text-align:center;font:20px var(--scribble)}
 .m4 .m4-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 15px}
 .m4 .m4-links p{margin:3px 0}
@@ -164,35 +187,33 @@
 <div class="bookmark" aria-hidden="true"><svg viewBox="0 0 60 150"><path d="M0 0h60v150l-30-20L0 150z" fill="#76518f"/><text x="30" y="70" text-anchor="middle" font-size="32" fill="#fffef6">✦</text></svg></div>
 <!-- INTRODUCTION: Replace the name, tagline, and short introduction with your own details. -->
 <p class="m4-kicker">FIELD NOTES · 04 / A WORK IN PROGRESS</p>
-<h1>[YOUR NAME]</h1>
-<p class="member-tagline">“[A short tagline that sounds like you.]”</p>
+<h1>Manu G. Octaviano</h1>
+<p class="member-tagline">“I'm tired, boss...”</p>
 <div class="m4-profile-grid">
   <section>
     <h2>First, the basics</h2>
-    <p>[Introduce yourself: what you study, what you enjoy, and what you are curious about.]</p>
+    <p>Hey there! I'm Manu G. Octaviano. I'm a 3rd year BSIT student who's just trying to survive.</p>
     <p>[Add a little more about your background, goals, or what you hope to learn.]</p>
     <!-- BACKGROUND: Fill in your course, school, current focus, and a personal margin note. -->
     <dl class="m4-facts">
-      <div><dt>COURSE</dt><dd>[Program / year level]</dd></div>
-      <div><dt>SCHOOL</dt><dd>[School name]</dd></div>
-      <div><dt>FOCUS</dt><dd>[Topics you are exploring]</dd></div>
-      <div class="m4-goals"><dt>RIGHT NOW</dt><dd>[What you are learning or working on]</dd></div>
+      <div><dt>COURSE</dt><dd>BSIT 3-1</dd></div>
+      <div><dt>SCHOOL</dt><dd>PLM</dd></div>
+      <div><dt>FOCUS</dt><dd>Trying to survive this semester.</dd></div>
+      <div class="m4-goals"><dt>MY GOALS RIGHT NOW</dt><dd>Better ways at doomscrolling, vibecoding, and avoiding doing work.</dd></div>
     </dl>
-    <p class="m4-note">Margin note: [A small detail you want people to remember.]</p>
   </section>
-  <!-- PROFILE ART: Replace the doodle or placeholder caption with your illustration. -->
-  <aside class="m4-doodle" aria-label="Space for a profile illustration">
-    <div class="doodle-person" aria-hidden="true"><span class="head"></span><span class="body"></span><span class="arm left"></span><span class="arm right"></span><span class="leg left"></span><span class="leg right"></span></div>
-    <p class="handwritten">[Add a doodle or profile illustration]</p>
+  <aside class="m4-doodle" aria-label="Profile photo">
+    <img th:src="@{/images/m4-character.png}" alt="My profile photo">
+    <p class="handwritten">Accurate representation of me frfr</p>
   </aside>
 </div>
 <section>
   <!-- SKILLS: Replace the bracketed items; duplicate a group or list item to add more. -->
   <div class="m4-section-title"><h2>Things I work with</h2><small>skills can grow here →</small></div>
   <div class="m4-skill-groups">
-    <div class="m4-skill-group"><h3>Languages</h3><ul class="scribble-list"><li>[Language]</li><li>[Add more]</li></ul></div>
-    <div class="m4-skill-group"><h3>Tools &amp; workflow</h3><ul class="scribble-list"><li>[Tool]</li><li>[Platform / method]</li></ul></div>
-    <div class="m4-skill-group"><h3>Other skills</h3><ul class="scribble-list"><li>[Technical skill]</li><li>[Currently learning]</li></ul></div>
+    <div class="m4-skill-group"><h3>Languages</h3><ul class="scribble-list"><li>Java</li><li>Python</li><li>PHP</li><li>JavaScript</li><li>C++</li></ul></div>
+    <div class="m4-skill-group"><h3>I dunno what to put here</h3><ul class="scribble-list"></ul></div>
+    <div class="m4-skill-group"><h3>Other skills</h3><ul class="scribble-list"><li>Doomscrolling</li><li>Vibecoding</li></ul></div>
   </div>
 </section>
 <p class="signature">Flip on for projects →</p>
@@ -206,21 +227,25 @@
 <div class="m4-project-grid">
   <!-- PROJECT CARD: Fill in the project details; duplicate this section for another project. -->
   <section class="project-note m4-project">
-    <!-- SCREENSHOT: Replace this placeholder with an image and a descriptive alt value when ready. -->
-    <div class="m4-project-art" role="img" aria-label="Optional project screenshot or sketch placeholder">[Add a screenshot or sketch]</div>
-    <h3>[Project title]</h3>
-    <p>[A short description of the problem and what the project does.]</p>
-    <p><span class="m4-project-label">TECH:</span> [Languages, tools, or frameworks]</p>
-    <p><span class="m4-project-label">MY PART:</span> [Your role, contribution, or what you learned]</p>
+    <!-- SCREENSHOT: Replace the image path and alt text when updating this project's screenshot. -->
+    <div class="m4-project-art m4-project-art--image">
+      <img th:src="@{/images/manokmetrics.png}" alt="ManokMetrics price overview dashboard screenshot">
+    </div>
+    <h3>ManokMetrics</h3>
+    <p>A web application for tracking and analyzing poultry prices and market trends via PSA datasets.</p>
+    <p><span class="m4-project-label">TECH:</span> React, JavaScript, Vite, Recharts, PapaParse, Node.js, HTML, CSS, AI API integration.</p>
+    <p><span class="m4-project-label">MY PART:</span> Developed and enhanced the application, working on its interactive dashboard, CSV data importing and preprocessing, forecasting functionality, and AI Assistant integration. Also worked on improving the user interface and making complex data easier to understand</p>
   </section>
   <!-- PROJECT CARD: Fill in the project details; duplicate this section for another project. -->
   <section class="project-note m4-project">
-    <!-- SCREENSHOT: Replace this placeholder with an image and a descriptive alt value when ready. -->
-    <div class="m4-project-art" role="img" aria-label="Optional project screenshot or sketch placeholder">[Add a screenshot or sketch]</div>
-    <h3>[Another project title]</h3>
-    <p>[A short description of the problem and what the project does.]</p>
-    <p><span class="m4-project-label">TECH:</span> [Languages, tools, or frameworks]</p>
-    <p><span class="m4-project-label">MY PART:</span> [Your role, contribution, or what you learned]</p>
+    <!-- SCREENSHOT: Replace the image path and alt text when updating this project's screenshot. -->
+    <div class="m4-project-art m4-project-art--image">
+      <img th:src="@{/images/gymbyte.png}" alt="GymByte fitness and nutrition dashboard screenshot">
+    </div>
+    <h3>GymByte</h3>
+    <p>A web-based fitness management application that helps users organize workout routines, track nutrition, monitor physical progress, and manage their fitness goals.</p>
+    <p><span class="m4-project-label">TECH:</span> PHP, MySQL, JavaScript, HTML, CSS, Bootstrap 5, Chart.js, PDO, USDA FoodData Central API.</p>
+    <p><span class="m4-project-label">MY PART:</span> Contributed to the development of a web-based fitness management system, working with PHP and MySQL to support workout management, nutrition tracking, user accounts, and progress monitoring. Gained experience in database integration, application functionality, and responsive web development.</p>
   </section>
 </div>
 <p class="m4-note">More projects can be added by duplicating a card.</p>
@@ -229,13 +254,35 @@
 
 <!-- PAGE 3: Personal interests and links. Keep the page3 fragment name for notebook navigation. -->
 <article class="member-paper m4" th:fragment="page3">
-<p class="m4-kicker">FIELD NOTES · 04 / OFF THE CLOCK</p>
-<h1>Outside the syllabus</h1>
+<p class="m4-kicker">INTERESTS AND STUFF</p>
+<h1>My fixations</h1>
 <p class="member-tagline">“The details that make this page mine.”</p>
 <!-- INTERESTS: Replace each prompt with hobbies, favorite media, personal facts, or goals. -->
 <section class="m4-interest-grid" aria-label="Personal interests">
-  <div class="m4-interest"><h3>For fun</h3><p>[Hobbies, things you like making, or ways you spend free time.]</p></div>
-  <div class="m4-interest"><h3>On repeat</h3><p>[Favorite music, books, films, games, or other media.]</p></div>
+  <div class="m4-interest"><h3>For fun</h3><p>Exercising, playing games, doomscrolling, and NOT doing work</p></div>
+  <div class="m4-interest m4-music-interest" data-m4-music th:attr="data-youtube-api-key=${youtubeApiKey}">
+    <div class="m4-music-heading">
+      <h3>On repeat</h3>
+      <button class="m4-music-collapse" type="button" data-music-collapse aria-expanded="true" aria-label="Minimize On repeat card">−</button>
+    </div>
+    <div class="m4-music-content" data-music-content>
+      <p>Two playlists, one shuffle pool. Pick a random song:</p>
+      <button class="m4-music-start" type="button" data-music-start>
+        <span aria-hidden="true">♫</span> Play a random song
+      </button>
+      <div class="m4-music-panel" data-music-panel hidden>
+        <p class="m4-music-title" data-music-title>Waiting for a song</p>
+        <p class="m4-music-artist" data-music-artist hidden></p>
+        <div class="m4-music-frame" data-music-frame><div class="m4-music-player-host" data-music-player-host></div></div>
+        <div class="m4-music-controls" aria-label="Music controls">
+          <button type="button" data-music-play disabled>Play</button>
+          <button type="button" data-music-random disabled>Randomize</button>
+          <a data-music-open target="_blank" rel="noopener noreferrer" hidden>Open on YouTube ↗</a>
+        </div>
+        <p class="m4-music-status" data-music-status role="status" aria-live="polite">Loading playlist tracks…</p>
+      </div>
+    </div>
+  </div>
   <div class="m4-interest"><h3>Small facts</h3><p>[A favorite, a collection, a habit, or a fact about you.]</p></div>
   <div class="m4-interest"><h3>Looking ahead</h3><p>[A goal, place, skill, or experience you hope to explore.]</p></div>
 </section>
@@ -255,6 +302,7 @@
 </section>
 <!-- SIGN-OFF: Replace the name and note with your own closing message. -->
 <p class="signature">Thanks for stopping by. — [Your name]</p>
+<script th:src="@{/js/member4-music.js(v=2)}" defer></script>
 </article>
 
 <!-- ROUTE NAVIGATION: These links return to the index and move between member pages. -->

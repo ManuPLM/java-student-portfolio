@@ -14,7 +14,33 @@ From this folder, run:
 mvn spring-boot:run
 ```
 
-Then open http://localhost:8080.
+Then open http://localhost:8081.
+
+## Enable Member 4's YouTube music player
+The player reads both public playlists with YouTube Data API v3 and plays selections with the YouTube IFrame Player API. It needs a Google API key:
+
+1. In Google Cloud Console, create a project, enable **YouTube Data API v3**, and create an API key.
+2. Restrict the key to **YouTube Data API v3**. Under application restrictions, choose **Websites** and allow the local and deployed referrers, for example:
+   - `http://localhost:8081/*`
+   - `https://your-domain.example/*`
+   - `https://www.your-domain.example/*` (if that hostname is used)
+3. Set the key as an environment variable before starting the app. In PowerShell:
+
+   ```powershell
+   $env:YOUTUBE_API_KEY = "your-key"
+   mvn spring-boot:run
+   ```
+
+   In Bash:
+
+   ```bash
+   export YOUTUBE_API_KEY="your-key"
+   mvn spring-boot:run
+   ```
+
+The key is rendered to the browser because the playlist requests come from the browser; it is not a secret. Do not commit it. The API and referrer restrictions are important both locally and on the deployed site. Configure the same environment variable in your deployment platform and allow its exact HTTPS hostname(s).
+
+To try it, open `/member/4` or the notebook at `/?open=true`, navigate to Member 4's **On repeat** card, and choose a random song. Playback does not start until the card is clicked.
 
 ## Customize the cover
 Open `src/main/resources/templates/index.html`. Edit these two strings when your group is ready:

@@ -40,10 +40,12 @@
     const copy = page.cloneNode(true);
     copy.querySelectorAll('.page-zoom-trigger').forEach((button) => button.remove());
     copy.classList.add('page-preview-sheet');
+    copy.__previewSourcePage = page;
     previewCanvas.replaceChildren(copy);
     previewZoom = 1;
     previewTrigger = trigger;
     previewDialog.showModal();
+    window.initializeM4MusicPlayers?.(copy);
     window.requestAnimationFrame(updatePreviewZoom);
     previewViewport.scrollTop = 0;
     previewViewport.scrollLeft = 0;
@@ -128,6 +130,12 @@
     }
   });
   previewDialog.addEventListener('close', () => {
+    const originalPage = previewTrigger?.closest('.paper-page') ||
+      previewTrigger?.closest('.member-paper');
+    const previewPage = previewCanvas.firstElementChild;
+    if (originalPage && previewPage) {
+      window.syncM4MusicPreview?.(previewPage, originalPage);
+    }
     previewCanvas.replaceChildren();
     previewCanvas.style.width = '';
     previewCanvas.style.height = '';
