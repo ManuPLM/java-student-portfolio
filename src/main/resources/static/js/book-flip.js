@@ -167,7 +167,6 @@
   let currentPage = 0;
   let isAnimating = false;
   const flipDuration = 1150;
-  const pageStagger = 80;
 
   const fitBookPages = () => {
     book.querySelectorAll('.page-leaf .member-paper').forEach((page) => {
@@ -206,8 +205,6 @@
     leaves.forEach((leaf) => {
       const page = Number(leaf.dataset.page);
       const isTurned = leaf.classList.contains('is-turned');
-      const front = leaf.querySelector(':scope > .paper-page');
-      const back = leaf.querySelector(':scope > .leaf-back');
 
       const zIndex = page < currentPage
         ? page + 2
@@ -216,12 +213,6 @@
           : leaves.length + 10 - page;
       leaf.style.setProperty('z-index', String(zIndex), 'important');
       leaf.style.pointerEvents = isTurned ? 'none' : 'auto';
-      if (front) {
-        front.style.visibility = isTurned ? 'hidden' : 'visible';
-      }
-      if (back) {
-        back.style.visibility = isTurned ? 'visible' : 'hidden';
-      }
     });
   };
 
@@ -241,21 +232,29 @@
     const changing = direction > 0
       ? leaves.slice(currentPage, next)
       : leaves.slice(next, currentPage).reverse();
+    const turnDuration = changing.length > 1 ? 100 : flipDuration;
     isAnimating = true;
-    changing.forEach((leaf, index) => {
+    const turnPage = (index) => {
+      if (index >= changing.length) {
+        isAnimating = false;
+        return;
+      }
+
+      const leaf = changing[index];
+      leaf.style.setProperty('z-index', String(leaves.length + 30), 'important');
+      leaf.style.transitionDuration = `${turnDuration}ms`;
+      void leaf.offsetWidth;
+      requestAnimationFrame(() => {
+        leaf.classList.toggle('is-turned', direction > 0);
+      });
       window.setTimeout(() => {
-        leaf.style.setProperty('z-index', String(leaves.length + 30), 'important');
-        void leaf.offsetWidth;
-        requestAnimationFrame(() => {
-          leaf.classList.toggle('is-turned', direction > 0);
-        });
-      }, index * pageStagger);
-    });
-    window.setTimeout(() => {
-      currentPage = next;
-      updateStack();
-      isAnimating = false;
-    }, (changing.length - 1) * pageStagger + flipDuration + 20);
+        leaf.style.transitionDuration = '';
+        currentPage += direction;
+        updateStack();
+        turnPage(index + 1);
+      }, turnDuration + 20);
+    };
+    turnPage(0);
   };
   selectBookPage = flipTo;
 
