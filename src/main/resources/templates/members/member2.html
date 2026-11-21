@@ -1,17 +1,113 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Member 2 | Group Diary</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/wimpy-style.css}"><link rel="stylesheet" th:href="@{/css/page-preview.css}"><link rel="stylesheet" th:href="@{/css/wimpy-theme.css}"><script th:src="@{/js/book-flip.js}" defer></script><script th:src="@{/js/wimpy-fx.js}" defer></script></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/wimpy-style.css}"><link rel="stylesheet" th:href="@{/css/page-preview.css(v=2)}"><link rel="stylesheet" th:href="@{/css/wimpy-theme.css}"><script th:src="@{/js/book-flip.js}" defer></script><script th:src="@{/js/wimpy-fx.js}" defer></script></head>
 <body class="desk-page member-page"><main class="member-wrap">
-<nav class="page-nav"><a th:href="@{/?open=true}">← Back to diary</a><span>STUDENT FILE #02 · TOP SECRET (NOT REALLY)</span><a th:href="@{/member/3}">Next file →</a></nav>
-<article class="member-paper" th:fragment="memberContent"><div class="bookmark" aria-hidden="true"><!-- Replace this ribbon with your own bookmark design --><svg viewBox="0 0 60 150"><path d="M0 0h60v150l-30-20L0 150z" fill="#3f7fbf"/><text x="30" y="70" text-anchor="middle" font-size="34" fill="#fffef6">★</text></svg></div><p class="scribble-label">CONFIDENTIAL-ish / DO NOT LOSE THIS PAGE</p>
-<!-- Replace the bracketed prompts with your real information. -->
-<h1>Maria Angela C. Gorospe</h1><p class="member-tagline">“Tired”</p>
-<div class="profile-grid"><section><h2>About me</h2><p>I study Information Technology. I enjoy writing and taking naps of about 30 minutes in length. </p><p>To be honest, I just don't want to starve 4 years from now, I have no higher goals.</p><div class="scribble-bubble" style="position:relative;display:inline-block;right:auto;top:auto;margin:3px 0 12px;transform:rotate(-3deg)">CURRENT STATUS:<br>Barely holding on to hope</div></section>
-<aside class="sketch-card"><div class="doodle-person" aria-hidden="true"><span class="head"></span><span class="body"></span><span class="arm left"></span><span class="arm right"></span><span class="leg left"></span><span class="leg right"></span></div><p class="handwritten">[Draw yourself here]</p><p style="font-size:14px">artist's note: I tried.</p></aside></div>
-<section><h2>Skills & tools</h2><p></p><ul class="scribble-list"><li>Python</li><li>Java</li><li>Webpage Development</li><li>PHP</li></ul></section>
-<section><h2>Projects & achievements</h2><div class="project-grid"><div class="project-note"><h3>Random Quote Generator</h3><p>Made entirely solo for Web Systems Development</p></div><div class="project-note"><h3>Honorable Mention in Website Design Contest</h3><p>From a website design contest from Senior High School for a specific AirBnB listing. </p></div></div></section>
-<section><h2>Evidence of a personality</h2><p><ul><li>Future Goal: Survive </li><li>Hobby: Writing to cope</li><li>Motto: That's that and this is this</li></ul></p><p class="handwritten" style="font-size:22px">CERTIFIED WORK-IN-PROGRESS</p></section>
-<p class="signature">End of file. Please return this page to the notebook.</p></article>
-<nav class="page-nav bottom-nav"><a th:href="@{/member/1}">← Previous file</a><a th:href="@{/?open=true}">Back to contents ↑</a><a th:href="@{/member/3}">Next file →</a></nav>
+<nav class="page-nav"><a th:href="@{/?open=true}">← Back to diary</a><span>STUDENT FILE #02 · TOP SECRET (NOT REALLY)</span><a th:href="@{/member/6}">Next file →</a></nav>
+<article class="member-paper m2" th:fragment="memberContent"><style>
+.member-paper.m2{display:flex;flex-direction:column;gap:8px}
+.m2 h1{margin:0}.m2 .member-tagline{margin:0}.m2 .signature{margin:0;flex:none}
+.m2-tag{font:700 14px var(--scribble);letter-spacing:1px;color:#8a3b2f;margin:0}
+.m2-row{display:flex;gap:12px;flex:1;min-height:0}
+.m2-col{flex:1;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.m2-col ul{margin:0;padding-left:18px;font-size:17px;line-height:1.3}.m2-col li{margin-bottom:8px}
+.m2-fig{width:44%;flex:none;display:flex;flex-direction:column;margin:8px 4px 4px 0;padding:8px 8px 2px;background:#fff;border:2px solid #17202b;box-shadow:3px 5px 0 rgba(0,0,0,.18);transform:rotate(2deg);position:relative}
+.m2-fig:before{content:'';position:absolute;top:-11px;left:50%;width:70px;height:20px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,236,150,.9);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.m2-fig img{flex:1;min-height:0;width:100%;object-fit:contain}.m2-fig figcaption{font:16px var(--scribble);text-align:center;padding:2px 0}
+.m2-facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:none}
+.m2-facts div{border:2px solid #17202b;padding:5px 8px;box-shadow:2px 3px 0 rgba(0,0,0,.2);font:19px/1.05 var(--scribble)}
+.m2-facts small{display:block;font:700 12px var(--scribble);letter-spacing:1px;color:#6b4b3a}
+.m2-facts div:nth-child(1){background:#ffe98a;transform:rotate(-1.2deg)}.m2-facts div:nth-child(2){background:#ffcfcf;transform:rotate(1deg)}.m2-facts div:nth-child(3){background:#cfe4ff;transform:rotate(.8deg)}.m2-facts div:nth-child(4){background:#d5f0c8;transform:rotate(-1deg)}
+.m2-stack{flex:1;display:flex;flex-direction:column;gap:10px;min-height:0}.m2-stack>.cert{margin:0;min-height:0}
+.cert{flex:1;display:flex;flex-direction:column;justify-content:center;border:2px solid #17202b;background:rgba(255,255,255,.55);padding:8px 12px;box-shadow:3px 4px 0 rgba(0,0,0,.15);transform:rotate(-.6deg)}.cert:nth-child(even){transform:rotate(.7deg);background:#fff8dd}
+.cert b{font:700 25px var(--scribble)}.cert b:before{content:'☽';color:#a3bde4}.cert span{font-size:16px;line-height:1.3}
+.page-leaf .m2-stack>.cert{padding:5px 8px}.page-leaf .m2-stack>.cert b{font-size:18px;line-height:1}.page-leaf .m2-stack>.cert span{font-size:12px;line-height:1.1}
+@media(max-width:680px){.page-leaf .m2-stack>.cert b{font-size:clamp(13px,3.5vw,18px);line-height:1}.page-leaf .m2-stack>.cert span{font-size:clamp(9px,2.25vw,12px);line-height:1.15}}
+@media(max-width:460px){.page-leaf .m2-stack>.cert{padding:3px 5px}}
+@media(max-width:360px){.page-leaf .m2-stack>.cert{padding:2px 3px}}
+@media(max-width:330px){.page-leaf .m2-stack>.cert{padding:1px 2px}.page-leaf .m2-stack>.cert b{font-size:12.5px}.page-leaf .m2-stack>.cert span{font-size:8.5px;line-height:1.02}}
+@media(max-height:560px){.page-leaf .m2-stack,.page-leaf .m2-stack>.cert{flex:0 0 auto}}
+.chips{display:flex;gap:8px;flex:none}.chips span{flex:1;border:2px solid #17202b;background:#cfaaec;padding:5px 4px;text-align:center;font:18px/1.05 var(--scribble);box-shadow:2px 3px 0 rgba(0,0,0,.2);transform:rotate(-1deg)}.chips span:nth-child(2){background:#cfe4ff;transform:rotate(1deg)}.chips span:nth-child(3){background:#636db6}
+.shots{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:9px}
+.shots figure{margin:0;display:flex;flex-direction:column;min-height:0;border:2px solid #17202b;background:#fff;padding:4px;transform:rotate(-1deg)}.shots figure:nth-child(2){transform:rotate(1deg)}.shots figure:nth-child(3){grid-column:span 2}
+.shots img{flex:1;min-height:0;height:0;width:100%;object-fit:cover}.shots figcaption{font:16px var(--scribble);text-align:center}
+.quest{flex:1;min-height:0;display:flex;gap:10px;align-items:center;border:2px dashed #17202b;padding:6px 8px;background:rgba(255,255,255,.45)}
+.quest img{flex:none;width:108px;height:100%;object-fit:contain;border:2px solid #17202b;background:#fff;transform:rotate(-2deg)}.quest img.bare{background:none;border:0;transform:none}
+.quest h3{font:700 23px var(--scribble);margin:0}.quest p{margin:2px 0 0;font-size:15px;line-height:1.25}
+.m2-links{display:flex;gap:10px;margin:0;flex:none}.m2-links a{font:700 18px var(--scribble);color:#17202b;background:#f4d56b;border:2px solid #17202b;padding:2px 12px;text-decoration:none;box-shadow:2px 3px 0 rgba(0,0,0,.25);transform:rotate(-1deg)}
+.m2-gallery{flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:8px}
+.m2-gallery figure{margin:0;min-height:0;display:flex;background:#fff;padding:4px 4px 10px;border:2px solid #17202b;box-shadow:2px 3px 0 rgba(0,0,0,.2);transform:rotate(-1.4deg)}.m2-gallery figure:nth-child(even){transform:rotate(1.2deg)}.m2-gallery figure:nth-child(3n){transform:rotate(-.6deg)}
+.m2-gallery img{flex:1;min-width:0;min-height:0;width:100%;height:100%;object-fit:cover}
+.egg-back{position:fixed;inset:0;z-index:9999;background:rgba(12,9,6,.72);display:flex;align-items:center;justify-content:center;animation:eggin .25s ease}@keyframes eggin{from{opacity:0}}
+.egg-card{position:relative;width:min(520px,92vw);padding:26px 26px 22px 54px;background:#fffef6 repeating-linear-gradient(to bottom,transparent 0 31px,rgba(91,157,203,.5) 32px 33px);box-shadow:8px 12px 0 rgba(0,0,0,.35);transform:rotate(-1.3deg);font-family:var(--scribble)}
+.egg-card:before{content:'';position:absolute;left:38px;top:0;bottom:0;width:2px;background:rgba(220,93,93,.7)}
+.egg-card h3{font:700 34px var(--scribble);margin:0}.egg-date{font-size:17px;color:#345c7a;margin:2px 0 8px}
+.egg-pass{font:700 30px/1.15 var(--scribble);color:#a82a2a;margin:6px 0 6px}.egg-pass span{display:inline-block;animation:eggjit .25s steps(2) infinite}.egg-pass span:nth-child(2){animation-delay:-.12s}
+@keyframes eggjit{50%{transform:translate(1px,-1px) rotate(.8deg)}}
+.egg-card svg{width:100%;display:block;margin-top:6px}.egg-ghost{animation:eggfloat 3s ease-in-out infinite}@keyframes eggfloat{50%{transform:translateY(-7px)}}
+.egg-x{position:absolute;right:8px;top:4px;border:0;background:none;font:30px var(--scribble);cursor:pointer;color:#17202b}</style><script>(function(){if(window.__diaryEgg)return;window.__diaryEgg=1;
+function open(){if(document.querySelector('.egg-back'))return;const d=document.createElement('div');d.className='egg-back';
+d.innerHTML=`<div class="egg-card"><button class="egg-x" aria-label="Close">×</button><h3>Dear Diary,</h3><p class="egg-date">Saturday · 8:00 AM · Nov 21, 2026</p><p class="egg-pass"><span>please let me pass</span> <span>please let me pass</span></p><svg viewBox='0 0 300 180' fill='#fff' stroke='#111' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><path d='M6 160H294' fill='none'/><path d='M208 160V104q0-34 32-34t32 34v56z'/><text x='240' y='107' text-anchor='middle' font-size='18' font-weight='bold' fill='#111' stroke='none' font-family='cursive'>R.I.P.</text><text x='240' y='130' text-anchor='middle' font-size='14' fill='#111' stroke='none' font-family='cursive'>AShie</text><path d='M225 160q-2-9 4-11M257 160q2-9-4-11' stroke-width='3' fill='none'/><circle cx='198' cy='154' r='4' fill='#d43b3b' stroke-width='3'/><path d='M20 130q-16 8-14 28q16 2 26-8z' fill='#d43b3b'/><circle cx='45' cy='138' r='19'/><path d='M26 134q8-16 24-14q12 2 14 14q-10-7-20-5q-10 0-18 5z' fill='#d43b3b'/><path d='M35 133l6 6M41 133l-6 6M50 135l6 6M56 135l-6 6' stroke-width='3' fill='none'/><path d='M45 141q5 3 0 6' stroke-width='3' fill='none'/><path d='M40 150q7 4 14-1' stroke-width='3' fill='none'/><path d='M46 152q1 8 6 5q1-4-1-6z' fill='#f4a6b5' stroke-width='3'/><path d='M62 132L132 138L134 156L62 152z'/><path d='M84 134q8-18 22-20' fill='none'/><circle cx='109' cy='113' r='5'/><path d='m232 142L160 134m233 152L162 155' fill='none'/><ellipse cx='171' cy='132' rx='11' ry='6' transform='rotate(-15 171 132)'/><ellipse cx='174' cy='156' rx='11' ry='6'/><path d='M58 118q12-16 40-22' fill='none' stroke-dasharray='4 6' stroke-width='3'/><g class='egg-ghost'><path d='M86 94q0-42 24-42t24 42l-8-7-8 9-8-9-8 9-8-9z'/><circle cx='102' cy='70' r='2.5' fill='#111'/><circle cx='118' cy='70' r='2.5' fill='#111'/><ellipse cx='110' cy='82' rx='4' ry='5'/><path d='M93 60q-7 9-3 20' stroke='#d43b3b' stroke-width='3' fill='none'/><ellipse cx='110' cy='44' rx='17' ry='5' stroke='#d4a017' fill='none'/><path d='m244 40q0-14 16-14h46q16 0 16 14t-16 14h-32l-14 10 2-10q-18-1-18-14z' stroke-width='3'/><text x='183' y='46' text-anchor='middle' font-size='16' fill='#111' stroke='none' font-family='cursive'>pls pass</text></g></svg></div>`;
+const close=()=>{d.remove();document.removeEventListener('keydown',k)};const k=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',k);
+d.addEventListener('click',e=>{if(e.target===d||e.target.closest('.egg-x'))close()});document.body.appendChild(d)}
+document.addEventListener('click',e=>{if(e.target.closest('.m2-egg')){e.stopPropagation();open()}},true)})();</script><style>
+.egg2-card{max-height:92vh;overflow:auto;transform:rotate(1deg)}
+.egg2-note{font:700 26px/1.1 var(--scribble);color:#a82a2a;margin:6px 0 4px}.egg2-note span{display:inline-block;animation:eggjit .25s steps(2) infinite}.egg2-note span:nth-child(2){animation-delay:-.12s}
+.egg2-ps{font:20px var(--scribble);color:#345c7a;margin:8px 0 0}
+.egg2-photo{position:relative;margin:14px auto 0;padding:8px 8px 2px;background:#fff;border:2px solid #17202b;box-shadow:3px 5px 0 rgba(0,0,0,.2);transform:rotate(-1.6deg)}
+.egg2-photo:before{content:'';position:absolute;top:-11px;left:50%;width:78px;height:20px;transform:translateX(-50%) rotate(3deg);background:rgba(255,236,150,.9);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.egg2-photo img{display:block;width:100%;max-height:42vh;object-fit:contain}
+.egg2-photo figcaption{font:17px var(--scribble);text-align:center;padding:3px 0}</style><script>(function(){if(window.__diaryEgg2)return;window.__diaryEgg2=1;
+function open2(src){if(document.querySelector('.egg-back'))return;const d=document.createElement('div');d.className='egg-back';
+d.innerHTML='<div class="egg-card egg2-card"><button class="egg-x" aria-label="Close">×</button><h3>Dear Diary,</h3><p class="egg-date">Thursday · 8:43 PM · Nov 19, 2026</p><p class="egg2-note"><span>i love red pandas</span> <span>so much</span></p><figure class="egg2-photo"><img src="'+src+'" alt="Crying over a very magnificent red panda"><figcaption>me, every time a red panda exists</figcaption></figure><p class="egg2-ps">P.S. caretaker duties resume tomorrow.</p></div>';
+const close=()=>{d.remove();document.removeEventListener('keydown',k)};const k=e=>{if(e.key==='Escape')close()};document.addEventListener('keydown',k);
+d.addEventListener('click',e=>{if(e.target===d||e.target.closest('.egg-x'))close()});document.body.appendChild(d)}
+document.addEventListener('click',e=>{const t=e.target.closest('.m2-egg2');if(t){e.stopPropagation();open2(t.getAttribute('data-egg-img'))}},true)})();</script>
+<p class="m2-tag">STUDENT FILE #02 · PAGE 1/5 · Maria</p><h1>Maria Angela C.Gorospe</h1>
+<p class="member-tagline">“That is that and this is this</p>
+<div class="m2-row"><div class="m2-col"><div><h2>About me</h2>
+    <ul>
+        <li>3rd-year BSIT student sa Pamantasan ng Lungsod ng Maynila.</li>
+        <li>Interested sa Data Analytics at Game Development.</li>
+         <li>Nangangarap na mabuhay pa ng at least 1 year</li>
+    </ul>
+</div>
+<div class="scribble-bubble m2-egg" style="cursor:default;position:relative;display:inline-block;right:auto;top:auto;transform:rotate(-3deg);align-self:flex-start">CURRENT STATUS:<br>:)</div></div>
+<figure class="m2-fig"><img  th:src="@{/images/m2-character.png}" alt="Drawing of Maria"><figcaption>me, drawn by me</figcaption></figure></div>
+<div class="m2-facts"><div><small>YEAR</small>3rd-year BSIT</div><div><small>SCHOOL</small>PLM, Manila</div><div><small>INTO</small>Game Development & Data Analytics</div><small>SIDEQUEST</small>writer</div><p class="signature">flip the page →</p></article>
+<article class="member-paper m2" th:fragment="page2"><p class="m2-tag">STUDENT FILE #02 · PAGE 2/5 · Maria</p><h1>Certifications</h1><p class="member-tagline">"aral sa labas ng klase”</p>
+<div class="m2-stack"><div class="cert"><b>Basic Python</b><span>MNET IT</span></div>
+<div class="cert"><b>Azure Fundamentals(AZ-900)</b><span>Pinoy Systems Administrators</span></div>
+<div class="cert"><b>Intermediate PHP</b><span>codeacademy</span></div></div><p class="signature">flip the page →</p></article>
+<article class="member-paper m2" th:fragment="page3"><p class="m2-tag">STUDENT FILE #02 · PAGE 3/5 · Maria</p><h1>Skills</h1><p class="member-tagline">“self-study compilation”</p>
+<div class="chips"><span>Programming<br>(Java, Python, PHP)</span><span>Database & Backend<br>SQL &amp; PHP</span><span>Game Development<br>(Scratch & Pygame)</span></div>
+<div class="shots"><figure><img  th:src="@{/images/m2-java.png}" alt="Basic Java Program"><figcaption>Java Simple Calculator</figcaption></figure><figure><img  th:src="@{/images/m2-database.png}" alt="MySQL&PHP"><figcaption>SQL & PHP </figcaption></figure><figure><img  th:src="@{/images/m2-gamedev.png}" alt="Pygame Game Development"><figcaption>Menu Screen Prototype</figcaption></figure></div><p class="signature">flip the page →</p></article>
+<article class="member-paper m2" th:fragment="page4"><p class="m2-tag">STUDENT FILE #02 · PAGE 4/5 · Maria</p><h1>Miscellanious Musings</h1><p class="member-tagline">“Permanently on Survival Mode”</p>
+<h2>Non-Academic Aspirations</h2>
+<ul>
+    <li>Writing Stories</li>
+       <ul>
+            <li>-Focusing on academics leads to no feasible samples to add here</li>
+            <li>-Intending to specialize in Horror</li>
+       </ul>
+        
+    <li>Creating Illustrations</li>
+       <ul>
+            <li>Possible Alternative but unreliable source of income</li>
+            <li>Specializing in background and character design</li>
+       </ul>
+       <div class="shots">
+       <figure><img  th:src="@{/images/m2-drawing.png}" alt="Drawing of Maria"><figcaption>sample illustration</figcaption></figure>
+       <figure><img  th:src="@{/images/m2-drawing2.png}" alt="Drawing of Maria"><figcaption>sample illustration 2</figcaption></figure>
+       </div>
+</ul>
+<p class="m2-links"></p><p class="signature">last page next: side quests →</p></article>
+<article class="member-paper m2" th:fragment="page5"><p class="m2-tag">STUDENT FILE #02 · PAGE 5/5 · Maria</p><h1>Side quests</h1><p class="member-tagline">“miniscule sparks of light in pitch black darkness”</p>
+<div class="m2-stack">
+<div class="quest"><img  th:src="@{/images/m2-regret.png}" alt="the struggler"><div><h3>...</h3><p>one must imagine sisyphus happy</p></div></div>
+<div class="quest"><img  th:src="@{/images/m2-irefusetoexplain.png}" alt="no"><div><h3>Digital artist</h3><p>nasira po drawing tablet ko.</p></div></div>
+<div class="quest"><img  th:src="@{/images/m2-iaminpain.png}" alt="writing"><div><h3>Writer</h3><p>on my free time [buzzer noise]on my free time [buzzer noise]on my free time [buzzer noise]on my free time [buzzer noise]</p></div></div>
+<p class="m2-links"><a href="https://github.com/gmaria260" target="_blank" rel="noopener">Github</a></p>
+</div></article>
+<nav class="page-nav bottom-nav"><a th:href="@{/member/10}">← Previous file</a><a th:href="@{/?open=true}">Back to contents ↑</a><a th:href="@{/member/7}">Next file →</a></nav>
 </main></body></html>
